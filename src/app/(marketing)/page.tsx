@@ -74,11 +74,53 @@ const TRACKS = [
     ],
     progression: ["◦ FOUNDATION", "◦ APPLIED →"],
   },
+  {
+    family: "AI",
+    meta: "// FROM CONCEPTS TO DEPLOYMENT",
+    cols: 3,
+    tracks: [
+      {
+        icon: "{ 06 } → FOUNDATIONS",
+        level: "Entry",
+        levelClass: "entry",
+        title: "AI Foundations",
+        desc: "Core AI/ML concepts, terminology, and real-world applications. OCI AI Foundations aligned. The right starting point before any specialization.",
+        courses: 14,
+        projects: 3,
+        duration: "~3mo",
+        href: "/learn/ai-foundations",
+      },
+      {
+        icon: "{ 07 } → GENERATIVE AI",
+        level: "Bridge",
+        levelClass: "bridge",
+        title: "Generative AI",
+        desc: "LLMs, prompt engineering, RAG pipelines, and AI automation. OCI Generative AI Professional aligned. Built by someone who ships GenAI tools at Oracle.",
+        courses: 20,
+        projects: 5,
+        duration: "~5mo",
+        href: "/learn/generative-ai",
+      },
+      {
+        icon: "{ 08 } → ARCHITECTURE",
+        level: "Advanced",
+        levelClass: "advanced",
+        title: "Data Architecture",
+        desc: "Cloud data platforms, data warehousing, OCI Data Management, pipeline design. For engineers who want to own the full data stack — not just query it.",
+        courses: 22,
+        projects: 4,
+        duration: "~6mo",
+        href: "/learn/data-architecture",
+      },
+    ],
+    progression: ["◦ START HERE", "◦ BRIDGE", "◦ DEEP END →"],
+  },
 ];
 
 const MARQUEE_ITEMS = [
   "DATA ANALYTICS", "BUSINESS ANALYTICS", "DATA SCIENCE",
-  "NETWORKING", "CYBERSECURITY", "WEB DEVELOPMENT", "AI AUTOMATION",
+  "NETWORKING", "CYBERSECURITY", "AI FOUNDATIONS", "GENERATIVE AI",
+  "DATA ARCHITECTURE", "WEB DEVELOPMENT", "AI AUTOMATION",
 ];
 
 const levelStyle = (cls: string) => {
@@ -286,7 +328,7 @@ export default function HomePage() {
                 The <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Library</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // 05 TRACKS · 02 FAMILIES · FREE
+                // 08 TRACKS · 03 FAMILIES · FREE
               </div>
             </div>
 
