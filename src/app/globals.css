@@ -1,26 +1,95 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── TECHTURI DESIGN TOKENS ── */
+@theme inline {
+  /* Colors */
+  --color-background:   var(--background);
+  --color-foreground:   var(--foreground);
+  --color-surface:      var(--surface);
+  --color-border:       var(--border);
+  --color-accent:       var(--accent);
+  --color-accent-dim:   var(--accent-dim);
+  --color-dim:          var(--dim);
+  --color-dimmer:       var(--dimmer);
+
+  /* Fonts */
+  --font-sans:          var(--font-inter);
+  --font-mono:          var(--font-jetbrains);
+  --font-display:       var(--font-fraunces);
+
+  /* shadcn mappings */
+  --color-primary:              var(--accent);
+  --color-primary-foreground:   var(--background);
+  --color-secondary:            var(--surface);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted:                var(--surface);
+  --color-muted-foreground:     var(--dim);
+  --color-card:                 var(--surface);
+  --color-card-foreground:      var(--foreground);
+  --color-popover:              var(--surface);
+  --color-popover-foreground:   var(--foreground);
+  --color-ring:                 var(--accent);
+  --color-input:                var(--border);
+  --color-destructive:          oklch(0.577 0.245 27.325);
+  --radius-sm:  4px;
+  --radius-md:  6px;
+  --radius-lg:  8px;
+  --radius-xl:  12px;
+  --radius-2xl: 16px;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0A0A0B;
+  --foreground: #F5F4EE;
+  --surface:    #131315;
+  --border:     #1F1F22;
+  --accent:     #D4FF3A;
+  --accent-dim: #A8CC2E;
+  --dim:        #8B8B85;
+  --dimmer:     #4A4A45;
+  --radius:     6px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-fraunces), serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ── GRID OVERLAY ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245, 244, 238, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 244, 238, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* ── LOGO ── */
+.logo {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  text-decoration: none;
+}
+.logo .bracket,
+.logo .dot { color: var(--accent); }

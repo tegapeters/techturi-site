@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Techturi">
+  <title>Techturi</title>
+  <rect x="0" y="0" width="64" height="64" fill="#0A0A0B" rx="12"/>
+  <text x="32" y="45" text-anchor="middle"
+        font-family="'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace"
+        font-weight="500" font-size="28" fill="#F5F4EE">
+    <tspan fill="#D4FF3A">[</tspan>t<tspan fill="#D4FF3A">]</tspan>
+  </text>
+</svg>
