@@ -49,7 +49,7 @@ export default function IntakePage() {
 
     const body = encodeURIComponent(lines.join("\n\n"));
     const subject = encodeURIComponent(`Project Intake — ${form.business || form.name}`);
-    window.location.href = `mailto:tegapeters11@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:techturi.org@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 

@@ -42,19 +42,19 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Security */}
+          {/* Services */}
           <div>
             <h5 style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, letterSpacing: "0.2em", color: "var(--dimmer)", textTransform: "uppercase", marginBottom: 20 }}>
-              Security
+              Services
             </h5>
             <ul style={{ listStyle: "none" }}>
               {[
-                { href: "/learn/networking", label: "Networking" },
-                { href: "/learn/cybersecurity", label: "Cybersecurity" },
-                { href: "/services/wix", label: "Wix Subscriptions" },
-                { href: "/services/custom", label: "Custom Builds" },
+                { href: "/services", label: "All Services" },
+                { href: "/services", label: "Wix Subscriptions" },
+                { href: "/services", label: "Custom Builds" },
+                { href: "/portfolio", label: "Portfolio" },
               ].map((l) => (
-                <li key={l.href} style={{ marginBottom: 12 }}>
+                <li key={l.label} style={{ marginBottom: 12 }}>
                   <Link href={l.href} style={{ color: "var(--dim)", textDecoration: "none", fontSize: 14 }}>{l.label}</Link>
                 </li>
               ))}
@@ -68,10 +68,10 @@ export default function Footer() {
             </h5>
             <ul style={{ listStyle: "none" }}>
               {[
-                { href: "mailto:tegapeters11@gmail.com", label: "Email" },
+                { href: "mailto:techturi.org@gmail.com", label: "Email" },
                 { href: "/book", label: "Book a call" },
+                { href: "/intake", label: "Start a project" },
                 { href: "https://github.com/tegapeters", label: "GitHub" },
-                { href: "/client-portal", label: "Client Portal" },
               ].map((l) => (
                 <li key={l.href} style={{ marginBottom: 12 }}>
                   <Link href={l.href} style={{ color: "var(--dim)", textDecoration: "none", fontSize: 14 }}>{l.label}</Link>

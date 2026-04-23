@@ -12,7 +12,7 @@ const PATHS = [
   {
     icon: "[ 01 ]",
     title: "Book a call",
-    desc: "15-minute free call. Tell me what you need, I tell you if I can help. No pitch.",
+    desc: "30-minute free call. Tell me what you need, I tell you if I can help. No pitch.",
     cta: "Book now →",
     href: "/book",
     primary: true,
@@ -28,9 +28,9 @@ const PATHS = [
   {
     icon: "[ 03 ]",
     title: "Email directly",
-    desc: "Tegapeters11@gmail.com — I respond within 48 hours on business days.",
+    desc: "techturi.org@gmail.com — I respond within 48 hours on business days.",
     cta: "Send email →",
-    href: "mailto:tegapeters11@gmail.com",
+    href: "mailto:techturi.org@gmail.com",
     primary: false,
   },
   {
@@ -109,8 +109,8 @@ export default function ContactPage() {
                 <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 8 }}>
                   // DIRECT EMAIL
                 </div>
-                <a href="mailto:tegapeters11@gmail.com" style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 32, color: "var(--foreground)", textDecoration: "none", letterSpacing: "-0.02em" }}>
-                  Tegapeters11@gmail.com
+                <a href="mailto:techturi.org@gmail.com" style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 32, color: "var(--foreground)", textDecoration: "none", letterSpacing: "-0.02em" }}>
+                  techturi.org@gmail.com
                 </a>
               </div>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dimmer)" }}>

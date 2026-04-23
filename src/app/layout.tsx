@@ -29,12 +29,23 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Techturi — Learn. Build. Launch.",
     description:
-      "Free tech learning roadmaps and custom website development.",
+      "Free tech roadmaps for data, security & AI — plus custom websites and iOS apps built to last. Based in Houston, TX.",
     url: "https://techturi.org",
     siteName: "Techturi",
     locale: "en_US",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Techturi — Learn. Build. Launch.",
+    description:
+      "Free tech roadmaps for data, security & AI — plus custom websites and iOS apps built to last.",
+  },
+  keywords: [
+    "tech education", "data analytics", "cybersecurity", "generative AI",
+    "web development Houston", "custom website", "Wix studio", "iOS app development",
+    "free tech courses", "cert roadmap",
+  ],
 };
 
 export default function RootLayout({

@@ -103,7 +103,7 @@ export default function BookPage() {
                 {/* Alt contact */}
                 <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                   {[
-                    { label: "Email directly", href: "mailto:tegapeters11@gmail.com", icon: "[ @ ]" },
+                    { label: "Email directly", href: "mailto:techturi.org@gmail.com", icon: "[ @ ]" },
                     { label: "Fill intake form", href: "/intake", icon: "[ ✎ ]" },
                   ].map((c) => (
                     <Link
