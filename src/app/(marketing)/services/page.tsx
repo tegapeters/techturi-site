@@ -89,6 +89,7 @@ const ADDONS = [
     price: "$2,500",
     note: "+ $99 Apple fee",
     desc: "React Native build, App Store submission, 1 year of updates included.",
+    free: "Free with Custom Build (lifetime)",
   },
   {
     icon: "[ AND ]",
@@ -96,6 +97,7 @@ const ADDONS = [
     price: "$2,000",
     note: "",
     desc: "React Native build, Google Play submission, 1 year of updates included.",
+    free: null,
   },
   {
     icon: "[ x2 ]",
@@ -103,6 +105,7 @@ const ADDONS = [
     price: "$3,800",
     note: "",
     desc: "Full cross-platform build, both stores, 1 year of updates.",
+    free: null,
   },
   {
     icon: "[ +1yr ]",
@@ -110,6 +113,7 @@ const ADDONS = [
     price: "+$500",
     note: "/yr",
     desc: "Bug fixes, OS updates, App Store compliance renewals.",
+    free: null,
   },
 ];
 
@@ -189,12 +193,15 @@ export default function ServicesPage() {
                   </div>
 
                   <ul style={{ listStyle: "none", marginBottom: 36, flex: 1 }}>
-                    {tier.features.map((f) => (
-                      <li key={f} style={{ padding: "9px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: "var(--dim)", display: "flex", alignItems: "center", gap: 10 }}>
-                        <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace", fontSize: 12 }}>→</span>
-                        {f}
-                      </li>
-                    ))}
+                    {tier.features.map((f) => {
+                      const isIos = f.startsWith("FREE iOS");
+                      return (
+                        <li key={f} style={{ padding: "9px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: isIos ? "var(--accent)" : "var(--dim)", display: "flex", alignItems: "center", gap: 10, fontWeight: isIos ? 600 : 400 }}>
+                          <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace", fontSize: 12 }}>{isIos ? "✦" : "→"}</span>
+                          {f}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   <Link
@@ -252,9 +259,10 @@ export default function ServicesPage() {
                     "Full source code — it's yours",
                     "5 years of maintenance included",
                     "Custom integrations available",
-                    "iOS/Android app available as add-on",
+                    "FREE iOS app included ✦",
+                    "Android app available as add-on",
                   ].map((f) => (
-                    <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: "var(--dim)", display: "flex", alignItems: "center", gap: 12 }}>
+                    <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: f.startsWith("FREE") ? "var(--foreground)" : "var(--dim)", display: "flex", alignItems: "center", gap: 12, fontWeight: f.startsWith("FREE") ? 500 : 400 }}>
                       <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace" }}>→</span>
                       {f}
                     </li>
@@ -300,13 +308,23 @@ export default function ServicesPage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, marginBottom: 40 }} className="addons-grid">
               {ADDONS.map((a) => (
-                <div key={a.title} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px" }}>
+                <div key={a.title} style={{ background: a.free ? "linear-gradient(135deg, #1A1F0A 0%, #131315 100%)" : "var(--surface)", border: `1px solid ${a.free ? "var(--accent-dim)" : "var(--border)"}`, borderRadius: 8, padding: "28px 24px", position: "relative" }}>
+                  {a.free && (
+                    <div style={{ position: "absolute", top: -11, left: 20, background: "var(--accent)", color: "var(--background)", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.1em", whiteSpace: "nowrap" }}>
+                      FREE ON QUALIFYING PLANS
+                    </div>
+                  )}
                   <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", marginBottom: 16, letterSpacing: "0.1em" }}>{a.icon}</div>
                   <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 22, fontWeight: 500, marginBottom: 6, color: "var(--foreground)" }}>{a.title}</div>
                   <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", color: "var(--foreground)", marginBottom: 4 }}>
                     {a.price}<span style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)" }}>{a.note}</span>
                   </div>
                   <div style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.6, marginTop: 12 }}>{a.desc}</div>
+                  {a.free && (
+                    <div style={{ marginTop: 16, fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.08em" }}>
+                      ✦ {a.free}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

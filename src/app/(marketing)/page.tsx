@@ -494,13 +494,17 @@ export default function HomePage() {
                     "Hosted on Vercel or your choice",
                     "Full source code — it's yours",
                     "5 years of maintenance included",
-                    "iOS/Android app available as add-on",
-                  ].map((f) => (
-                    <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: "var(--dim)", display: "flex", alignItems: "center", gap: 12 }}>
-                      <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace" }}>→</span>
-                      {f}
-                    </li>
-                  ))}
+                    "FREE iOS app included ✦",
+                    "Android app available as add-on",
+                  ].map((f) => {
+                    const isIos = f.startsWith("FREE iOS");
+                    return (
+                      <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: isIos ? "var(--accent)" : "var(--dim)", display: "flex", alignItems: "center", gap: 12, fontWeight: isIos ? 600 : 400 }}>
+                        <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace" }}>{isIos ? "✦" : "→"}</span>
+                        {f}
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <Link href="/intake" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
