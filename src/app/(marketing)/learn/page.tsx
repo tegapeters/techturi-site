@@ -382,6 +382,51 @@ export default function LearnPage() {
           </div>
         </section>
 
+        {/* ── AI TOOLS ── */}
+        <section style={{ padding: "80px 0 120px", borderTop: "1px solid var(--border)" }}>
+          <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16, flexWrap: "wrap", gap: 16 }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 48, fontWeight: 400, lineHeight: 1, letterSpacing: "-0.03em" }}>
+                The <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Tools</em>
+              </h2>
+              <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>// WHAT CLOSES THE GAP</div>
+            </div>
+            <p style={{ fontSize: 16, color: "var(--dim)", maxWidth: 640, lineHeight: 1.7, marginBottom: 56 }}>
+              Certs teach the theory. These tools are what the industry is actually using day-to-day in 2025 to build faster, debug smarter, and ship more. Learning any of these alongside your cert track will make you significantly more hireable.
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid-learn">
+              {[
+                { name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai/code", badge: "USED HERE" },
+                { name: "Cursor", tag: "AI CODE EDITOR", desc: "VS Code with GPT-4 built in. Autocompletes entire functions, explains code inline, refactors on command.", url: "https://cursor.sh", badge: null },
+                { name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI in your terminal. Connects to local files, Google Drive, and the web. Free with a Google account.", url: "https://github.com/google-gemini/gemini-cli", badge: "FREE" },
+              ].map((t) => (
+                <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card-learn">
+                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "FREE" ? "transparent" : "var(--accent)", color: t.badge === "FREE" ? "var(--accent)" : "var(--background)", border: t.badge === "FREE" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
+                  <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 20, fontWeight: 500, color: "var(--foreground)", marginBottom: 4 }}>{t.name}</div>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14 }}>{t.tag}</div>
+                  <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
+                </a>
+              ))}
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="tools-grid-learn">
+              {[
+                { name: "OpenAI Codex / ChatGPT", tag: "GENERAL AI ASSISTANT", desc: "Explain code, write boilerplate, debug errors, draft documentation. The most widely used AI tool in tech today.", url: "https://chatgpt.com", badge: null },
+                { name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to tools, databases, and APIs. Covered in the Generative AI track.", url: "https://modelcontextprotocol.io", badge: "NEW 2025" },
+                { name: "Vercel v0", tag: "AI UI GENERATOR", desc: "Describe a UI, get production-ready React code. Goes from idea to deployed component in minutes.", url: "https://v0.dev", badge: null },
+              ].map((t) => (
+                <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card-learn">
+                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: "transparent", color: "var(--accent)", border: "1px solid var(--accent)", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
+                  <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 20, fontWeight: 500, color: "var(--foreground)", marginBottom: 4 }}>{t.name}</div>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14 }}>{t.tag}</div>
+                  <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
 
@@ -391,7 +436,12 @@ export default function LearnPage() {
           .track-header > div { border-left: none !important; padding-left: 0 !important; border-top: 1px solid var(--border); padding-top: 24px; }
           .track-header > div:first-child { border-top: none; padding-top: 0; }
           .cert-stack { flex-direction: column; }
+          .tools-grid-learn { grid-template-columns: 1fr 1fr !important; }
         }
+        @media (max-width: 600px) {
+          .tools-grid-learn { grid-template-columns: 1fr !important; }
+        }
+        .tool-card-learn:hover { border-color: var(--accent) !important; transform: translateY(-3px); }
       `}</style>
     </>
   );
