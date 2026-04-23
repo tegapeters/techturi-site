@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Book a Call — Techturi",
-  description: "Schedule a free 15-minute call with Tega. No pitch — just a conversation about what you need.",
+  description: "Schedule a free 30-minute call with Tega. No pitch — just a conversation about what you need.",
 };
 
 const WHAT_TO_EXPECT = [
@@ -46,14 +46,14 @@ export default function BookPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
             <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              Free · 15 Minutes · No Pitch
+              Free · 30 Minutes · No Pitch
             </div>
             <h1 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: "clamp(48px,7vw,96px)", fontWeight: 400, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 32 }}>
               Let&apos;s talk about<br />
               <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>what you need.</em>
             </h1>
             <p style={{ fontSize: 20, color: "var(--dim)", maxWidth: 560, lineHeight: 1.6 }}>
-              15 minutes with Tega. No sales script. You tell me what you&apos;re working on — I tell you if and how I can help.
+              30 minutes with Tega. No sales script. You tell me what you&apos;re working on — I tell you if and how I can help.
             </p>
           </div>
         </section>
@@ -69,17 +69,21 @@ export default function BookPage() {
                   // PICK A TIME
                 </div>
 
-                {/* Calendly placeholder */}
-                <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "48px 40px", marginBottom: 32, textAlign: "center" }}>
-                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 32, color: "var(--accent)", marginBottom: 24 }}>[ CAL ]</div>
+                {/* Calendly CTA */}
+                <div style={{ background: "linear-gradient(135deg, #1A1F0A 0%, #131315 100%)", border: "1px solid var(--accent-dim)", borderRadius: 8, padding: "48px 40px", marginBottom: 32, textAlign: "center" }}>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 20 }}>
+                    ◆ CALENDLY · 30 MIN
+                  </div>
                   <h3 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 28, fontWeight: 400, marginBottom: 12, color: "var(--foreground)" }}>
                     Schedule directly
                   </h3>
                   <p style={{ color: "var(--dim)", fontSize: 14, lineHeight: 1.6, marginBottom: 32, maxWidth: 340, margin: "0 auto 32px" }}>
-                    Pick a time that works for you. Google Meet link sent automatically. Cancel or reschedule anytime.
+                    Pick a time that works for you. Confirmation and Google Meet link sent automatically. Cancel or reschedule anytime.
                   </p>
                   <a
-                    href="mailto:tegapeters11@gmail.com?subject=Book%20a%20Call%20-%20Techturi&body=Hi%20Tega%2C%0A%0AI%27d%20like%20to%20schedule%20a%2015-minute%20call.%0A%0AWhat%20I%27m%20working%20on%3A%0A%0ABest%20times%20for%20me%3A%0A%0AThanks"
+                    href="https://calendly.com/techturi-org/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       display: "inline-block",
                       fontFamily: "var(--font-jetbrains),monospace",
@@ -92,7 +96,7 @@ export default function BookPage() {
                       textDecoration: "none",
                     }}
                   >
-                    Request a time →
+                    Pick a time →
                   </a>
                 </div>
 
