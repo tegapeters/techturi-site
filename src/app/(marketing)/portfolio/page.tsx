@@ -31,11 +31,11 @@ const PROJECTS = [
   },
   {
     id: "03",
-    title: "OCI GenAI Ticket Automation",
-    type: "Internal AI Tool — Oracle",
-    stack: ["Python", "OCI GenAI", "Jira API"],
-    desc: "GenAI-powered tool that automates ticket QA, root cause analysis, and incident reporting across Oracle NetSuite's CSI operations. Reduced manual workload across the team.",
-    status: "DEPLOYED",
+    title: "Snapi",
+    type: "iOS App — Collab with Lazaro Martull",
+    stack: ["Swift", "SwiftUI", "VNClassify", "CoreML"],
+    desc: "iOS photo cleaner with AI-powered duplicate detection and smart categorization. 3-tab UI — Home, Duplicates, Categories. CNN similarity matching + Apple's Vision framework. Built in collaboration with Lazaro Martull.",
+    status: "IN DEV",
     year: "2026",
     featured: true,
   },
@@ -54,6 +54,7 @@ const PROJECTS = [
 const statusColor = (s: string) => {
   if (s === "LIVE") return { color: "var(--accent)", border: "1px solid rgba(212,255,58,0.3)", background: "rgba(212,255,58,0.1)" };
   if (s === "DEPLOYED") return { color: "var(--accent-dim)", border: "1px solid rgba(168,204,46,0.3)", background: "rgba(168,204,46,0.08)" };
+  if (s === "IN DEV") return { color: "#6B9FFF", border: "1px solid rgba(107,159,255,0.3)", background: "rgba(107,159,255,0.08)" };
   return { color: "var(--dim)", border: "1px solid var(--border)", background: "transparent" };
 };
 
