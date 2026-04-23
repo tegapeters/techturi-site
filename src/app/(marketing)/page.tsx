@@ -302,11 +302,11 @@ export default function HomePage() {
 
         {/* ── MARQUEE ── */}
         <div style={{ borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", padding: "20px 0", overflow: "hidden" }}>
-          <div style={{
+          <div className="marquee-strip" style={{
             display: "flex",
             gap: 60,
             whiteSpace: "nowrap",
-            animation: "scroll 30s linear infinite",
+            animation: "scroll 20s linear infinite",
             fontFamily: "var(--font-jetbrains),monospace",
             fontSize: 13,
             color: "var(--dim)",
@@ -396,6 +396,55 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* ── AI TOOLS ── */}
+        <section style={{ padding: "120px 0", borderTop: "1px solid var(--border)" }} id="tools">
+          <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 16, flexWrap: "wrap", gap: 24 }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 56, fontWeight: 400, lineHeight: 1, letterSpacing: "-0.03em" }}>
+                The <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Tools</em>
+              </h2>
+              <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
+                // WHAT CLOSES THE GAP
+              </div>
+            </div>
+            <p style={{ fontSize: 16, color: "var(--dim)", maxWidth: 620, lineHeight: 1.7, marginBottom: 60 }}>
+              Certs teach the theory. These tools close the gap between knowing it and shipping it. Every serious tech professional in 2025 is using at least one of these daily.
+            </p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid">
+              {[
+                { icon: "[ ◆ ]", name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai/code", badge: "USED HERE" },
+                { icon: "[ ↗ ]", name: "Cursor", tag: "AI CODE EDITOR", desc: "VS Code with GPT-4 built in. Autocompletes entire functions, explains code inline, refactors on command. The new standard for engineers.", url: "https://cursor.sh", badge: null },
+                { icon: "[ $ ]", name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI assistant in your terminal. Connects to your local files, Google Drive, and web — free with a Google account.", url: "https://github.com/google-gemini/gemini-cli", badge: "FREE" },
+              ].map((t) => (
+                <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "32px 28px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card">
+                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "FREE" ? "transparent" : "var(--accent)", color: t.badge === "FREE" ? "var(--accent)" : "var(--background)", border: t.badge === "FREE" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 14, color: "var(--accent)", marginBottom: 16 }}>{t.icon}</div>
+                  <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 22, fontWeight: 500, color: "var(--foreground)", marginBottom: 4 }}>{t.name}</div>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.tag}</div>
+                  <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
+                </a>
+              ))}
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="tools-grid">
+              {[
+                { icon: "[ ✦ ]", name: "OpenAI Codex / ChatGPT", tag: "GENERAL AI ASSISTANT", desc: "Explain code, write boilerplate, debug errors, draft documentation. The most widely used AI tool in tech today.", url: "https://chatgpt.com", badge: null },
+                { icon: "[ ⟡ ]", name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to your tools, databases, and APIs. The backbone of modern agentic AI. Covered in the GenAI track.", url: "https://modelcontextprotocol.io", badge: "NEW 2025" },
+                { icon: "[ ▲ ]", name: "Vercel v0", tag: "AI UI GENERATOR", desc: "Describe a UI, get production-ready React code. Built on shadcn/ui. Goes from idea to deployed component in minutes.", url: "https://v0.dev", badge: null },
+              ].map((t) => (
+                <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "32px 28px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card">
+                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "NEW 2025" ? "transparent" : "var(--accent)", color: t.badge === "NEW 2025" ? "var(--accent)" : "var(--background)", border: t.badge === "NEW 2025" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 14, color: "var(--accent)", marginBottom: 16 }}>{t.icon}</div>
+                  <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 22, fontWeight: 500, color: "var(--foreground)", marginBottom: 4 }}>{t.name}</div>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.tag}</div>
+                  <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.7, margin: 0 }}>{t.desc}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -589,6 +638,11 @@ export default function HomePage() {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
         }
+        @keyframes scroll-fast {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
+        }
+        .tool-card:hover { border-color: var(--accent) !important; transform: translateY(-3px); }
         .path-card:hover { border-color: #33333A !important; transform: translateY(-4px); }
         .path-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
         .path-card:hover::before { transform:scaleX(1); }
@@ -602,9 +656,11 @@ export default function HomePage() {
           .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
           .services-grid { grid-template-columns: 1fr !important; }
           .portfolio-grid { grid-template-columns: 1fr !important; }
+          .tools-grid { grid-template-columns: 1fr !important; }
           .footer-inner { grid-template-columns: 1fr 1fr !important; }
           section { padding-top: 60px !important; padding-bottom: 60px !important; }
           section:first-child { padding-top: 60px !important; }
+          .marquee-strip { animation-duration: 12s !important; }
         }
         @media (max-width: 480px) {
           .stats-grid { grid-template-columns: 1fr 1fr !important; }
