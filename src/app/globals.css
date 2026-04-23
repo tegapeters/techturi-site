@@ -80,6 +80,11 @@ body::before {
   z-index: 0;
 }
 
+/* ── MOBILE BASE ── */
+@media (max-width: 768px) {
+  body { font-size: 15px; }
+}
+
 /* ── LOGO ── */
 .logo {
   font-family: var(--font-jetbrains), monospace;

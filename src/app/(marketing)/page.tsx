@@ -343,7 +343,7 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: `repeat(${family.cols}, 1fr)`, gap: 20, position: "relative" }}>
+                <div style={{ display: "grid", gridTemplateColumns: `repeat(${family.cols}, 1fr)`, gap: 20, position: "relative" }} className={`track-grid track-grid-${family.cols}`}>
                   {/* Progression labels */}
                   <div style={{ position: "absolute", top: -32, left: 0, right: 0, display: "flex", justifyContent: "space-between", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", pointerEvents: "none" }} className="progression-labels">
                     {family.progression.map((p) => <span key={p}>{p}</span>)}
@@ -589,16 +589,22 @@ export default function HomePage() {
         .path-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
         .path-card:hover::before { transform:scaleX(1); }
         .track-card:hover { border-color: var(--accent) !important; transform: translateY(-4px); }
+        @media (max-width: 900px) {
+          .track-grid { grid-template-columns: 1fr !important; }
+          .progression-labels { display: none !important; }
+        }
         @media (max-width: 768px) {
           .paths-grid { grid-template-columns: 1fr !important; }
           .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
           .services-grid { grid-template-columns: 1fr !important; }
           .portfolio-grid { grid-template-columns: 1fr !important; }
-          .progression-labels { display: none !important; }
           .footer-inner { grid-template-columns: 1fr 1fr !important; }
+          section { padding-top: 60px !important; padding-bottom: 60px !important; }
+          section:first-child { padding-top: 60px !important; }
         }
-        @media (max-width: 900px) {
-          .track-grid-3, .track-grid-2 { grid-template-columns: 1fr !important; }
+        @media (max-width: 480px) {
+          .stats-grid { grid-template-columns: 1fr 1fr !important; }
+          .footer-inner { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </>
