@@ -397,9 +397,9 @@ export default function LearnPage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid-learn">
               {[
-                { name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai/code", badge: "USED HERE" },
+                { name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai", badge: "USED HERE" },
                 { name: "Cursor", tag: "AI CODE EDITOR", desc: "VS Code with GPT-4 built in. Autocompletes entire functions, explains code inline, refactors on command.", url: "https://cursor.sh", badge: null },
-                { name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI in your terminal. Connects to local files, Google Drive, and the web. Free with a Google account.", url: "https://github.com/google-gemini/gemini-cli", badge: "FREE" },
+                { name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI in your terminal. Connects to local files, Google Drive, and the web. Free with a Google account.", url: "https://gemini.google.com", badge: "FREE" },
               ].map((t) => (
                 <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card-learn">
                   {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "FREE" ? "transparent" : "var(--accent)", color: t.badge === "FREE" ? "var(--accent)" : "var(--background)", border: t.badge === "FREE" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
