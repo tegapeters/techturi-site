@@ -41,6 +41,14 @@ const PATHS = [
     href: "https://github.com/tegapeters",
     primary: false,
   },
+  {
+    icon: "[ 05 ]",
+    title: "LinkedIn",
+    desc: "Career background, certifications, and experience — connect or just look around.",
+    cta: "View profile →",
+    href: "https://www.linkedin.com/in/tega-p-eshareturi-014002142/",
+    primary: false,
+  },
 ];
 
 export default function ContactPage() {

@@ -1,5 +1,6 @@
 import Nav from "@/components/marketing/Nav";
 import Footer from "@/components/marketing/Footer";
+import QuizWidget from "@/components/learning/QuizWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -112,6 +113,9 @@ export default function CybersecurityPage() {
             </div>
           </div>
         </section>
+
+        {/* ── QUIZ ── */}
+        <QuizWidget trackId="cybersecurity" />
 
         <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)", textAlign: "center" }}>
           <div style={{ maxWidth: 560, margin: "0 auto", padding: "0 32px" }}>

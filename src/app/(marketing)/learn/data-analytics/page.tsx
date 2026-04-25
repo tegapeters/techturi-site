@@ -2,6 +2,7 @@ import Nav from "@/components/marketing/Nav";
 import Footer from "@/components/marketing/Footer";
 import Link from "next/link";
 import type { Metadata } from "next";
+import QuizWidget from "@/components/learning/QuizWidget";
 
 export const metadata: Metadata = {
   title: "Data Analytics Roadmap",
@@ -144,6 +145,9 @@ export default function DataAnalyticsPage() {
             </div>
           </div>
         </section>
+
+        {/* ── QUIZ ── */}
+        <QuizWidget trackId="data-analytics" />
 
         {/* ── CTA ── */}
         <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)", textAlign: "center" }}>

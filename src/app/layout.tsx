@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -46,6 +47,13 @@ export const metadata: Metadata = {
     "web development Houston", "custom website", "Wix studio", "iOS app development",
     "free tech courses", "cert roadmap",
   ],
+  verification: {
+    google: "W5hfg9y5Mb0tKkFm1DUj63qtTUOxyJ92Jf9ls1tzY8A",
+  },
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -55,7 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}<Analytics /></body>
     </html>
   );
 }

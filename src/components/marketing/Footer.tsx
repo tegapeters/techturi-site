@@ -72,6 +72,7 @@ export default function Footer() {
                 { href: "/book", label: "Book a call" },
                 { href: "/intake", label: "Start a project" },
                 { href: "https://github.com/tegapeters", label: "GitHub" },
+                { href: "https://www.linkedin.com/in/tega-p-eshareturi-014002142/", label: "LinkedIn" },
               ].map((l) => (
                 <li key={l.href} style={{ marginBottom: 12 }}>
                   <Link href={l.href} style={{ color: "var(--dim)", textDecoration: "none", fontSize: 14 }}>{l.label}</Link>

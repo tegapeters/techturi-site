@@ -416,7 +416,7 @@ export default function HomePage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid">
               {[
-                { icon: "[ ◆ ]", name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai", badge: "USED HERE" },
+                { icon: "[ ◆ ]", name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation.", url: "https://claude.ai", badge: null },
                 { icon: "[ ↗ ]", name: "Cursor", tag: "AI CODE EDITOR", desc: "VS Code with GPT-4 built in. Autocompletes entire functions, explains code inline, refactors on command. The new standard for engineers.", url: "https://cursor.sh", badge: null },
                 { icon: "[ $ ]", name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI assistant in your terminal. Connects to your local files, Google Drive, and web — free with a Google account.", url: "https://gemini.google.com", badge: "FREE" },
               ].map((t) => (
@@ -511,7 +511,7 @@ export default function HomePage() {
                   ))}
                 </ul>
 
-                <Link href="/services/wix" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, textDecoration: "none" }}>
+                <Link href="/services" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, textDecoration: "none" }}>
                   Start subscription →
                 </Link>
               </div>
@@ -578,10 +578,10 @@ export default function HomePage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20 }} className="portfolio-grid">
               {[
-                { title: "A & J National Housing", type: "GOVERNMENT LODGING · WIX STUDIO", tall: false },
-                { title: "HEOP23", type: "EVENT PLATFORM", tall: true },
+                { title: "A & J National Housing", type: "GOVERNMENT LODGING · WIX STUDIO", tall: false, href: "https://www.ajnationalhousing.com" },
+                { title: "HEOP23", type: "EVENT PLATFORM", tall: true, href: "https://www.heop23.com" },
               ].map((w) => (
-                <div key={w.title} style={{
+                <a key={w.title} href={w.href} target="_blank" rel="noopener noreferrer" style={{
                   background: "var(--surface)",
                   border: "1px solid var(--border)",
                   borderRadius: 8,
@@ -589,7 +589,9 @@ export default function HomePage() {
                   aspectRatio: w.tall ? "1/1" : "16/10",
                   cursor: "pointer",
                   transition: "border-color 0.3s",
-                }}>
+                  textDecoration: "none",
+                  display: "block",
+                }} className="portfolio-card">
                   <div style={{
                     width: "100%",
                     height: "70%",
@@ -604,7 +606,7 @@ export default function HomePage() {
                     </div>
                     <span style={{ fontFamily: "var(--font-jetbrains),monospace", color: "var(--dim)", fontSize: 20 }}>↗</span>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -624,7 +626,7 @@ export default function HomePage() {
                 Browse the library
               </Link>
               <Link href="/book" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
-                Book a 15-min call
+                Book a free 30-min call
               </Link>
             </div>
           </div>
@@ -647,6 +649,7 @@ export default function HomePage() {
         .path-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform 0.4s; }
         .path-card:hover::before { transform:scaleX(1); }
         .track-card:hover { border-color: var(--accent) !important; transform: translateY(-4px); }
+        .portfolio-card:hover { border-color: var(--accent) !important; }
         @media (max-width: 900px) {
           .track-grid { grid-template-columns: 1fr !important; }
           .progression-labels { display: none !important; }

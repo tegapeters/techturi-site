@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "@/components/marketing/Nav";
 import Footer from "@/components/marketing/Footer";
+import BadgeShelf from "@/components/learning/BadgeShelf";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -397,7 +398,7 @@ export default function LearnPage() {
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid-learn">
               {[
-                { name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation. This site was built with it.", url: "https://claude.ai", badge: "USED HERE" },
+                { name: "Claude Code", tag: "AI CODING AGENT", desc: "Anthropic's CLI agent. Writes, edits, and debugs entire codebases through conversation.", url: "https://claude.ai", badge: null },
                 { name: "Cursor", tag: "AI CODE EDITOR", desc: "VS Code with GPT-4 built in. Autocompletes entire functions, explains code inline, refactors on command.", url: "https://cursor.sh", badge: null },
                 { name: "Gemini CLI", tag: "GOOGLE AI TERMINAL", desc: "Google's AI in your terminal. Connects to local files, Google Drive, and the web. Free with a Google account.", url: "https://gemini.google.com", badge: "FREE" },
               ].map((t) => (
@@ -426,6 +427,9 @@ export default function LearnPage() {
             </div>
           </div>
         </section>
+
+        {/* ── BADGE SHELF ── */}
+        <BadgeShelf />
 
       </main>
       <Footer />

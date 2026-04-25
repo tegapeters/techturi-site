@@ -94,7 +94,7 @@ const ROADMAPS = [
 ];
 
 const TOOLS = [
-  { name: "Claude Code", tag: "AI Coding Agent", desc: "Writes, edits, and debugs codebases through conversation.", url: "https://claude.ai", badge: "USED HERE" },
+  { name: "Claude Code", tag: "AI Coding Agent", desc: "Writes, edits, and debugs codebases through conversation.", url: "https://claude.ai", badge: null },
   { name: "Cursor", tag: "AI Code Editor", desc: "VS Code with GPT-4 built in. Autocompletes functions, explains code inline.", url: "https://cursor.sh", badge: null },
   { name: "Gemini CLI", tag: "Google AI Terminal", desc: "AI assistant in your terminal. Free with a Google account.", url: "https://gemini.google.com", badge: "FREE" },
   { name: "OpenAI Codex / ChatGPT", tag: "General AI", desc: "Explain code, write boilerplate, debug errors, draft docs.", url: "https://chatgpt.com", badge: null },

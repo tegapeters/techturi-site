@@ -18,6 +18,7 @@ const PROJECTS = [
     status: "LIVE",
     year: "2025",
     featured: true,
+    href: "https://www.ajnationalhousing.com",
   },
   {
     id: "02",
@@ -28,6 +29,7 @@ const PROJECTS = [
     status: "LIVE",
     year: "2023",
     featured: false,
+    href: "https://www.heop23.com",
   },
   {
     id: "03",
@@ -38,6 +40,7 @@ const PROJECTS = [
     status: "DEMO",
     year: "2026",
     featured: true,
+    href: null,
   },
   {
     id: "04",
@@ -48,6 +51,7 @@ const PROJECTS = [
     status: "ACTIVE",
     year: "2025",
     featured: false,
+    href: null,
   },
 ];
 
@@ -84,9 +88,15 @@ export default function PortfolioPage() {
         {/* ── PROJECT LIST ── */}
         <section style={{ padding: "0 0 140px", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
-            {PROJECTS.map((p, i) => (
-              <div
+            {PROJECTS.map((p, i) => {
+              const Wrapper = p.href ? "a" : "div";
+              const wrapperProps = p.href
+                ? { href: p.href, target: "_blank", rel: "noopener noreferrer" }
+                : {};
+              return (
+              <Wrapper
                 key={p.id}
+                {...(wrapperProps as object)}
                 style={{
                   display: "grid",
                   gridTemplateColumns: "80px 1fr auto",
@@ -94,6 +104,9 @@ export default function PortfolioPage() {
                   padding: "48px 0",
                   borderBottom: "1px solid var(--border)",
                   alignItems: "start",
+                  textDecoration: "none",
+                  color: "inherit",
+                  cursor: p.href ? "pointer" : "default",
                 }}
                 className="project-row"
               >
@@ -118,6 +131,7 @@ export default function PortfolioPage() {
                     }}>
                       {p.status}
                     </span>
+                    {p.href && <span style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dimmer)" }}>↗</span>}
                   </div>
 
                   <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dim)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
@@ -141,8 +155,9 @@ export default function PortfolioPage() {
                 <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dimmer)", paddingTop: 6, textAlign: "right" }}>
                   {p.year}
                 </div>
-              </div>
-            ))}
+              </Wrapper>
+              );
+            })}
           </div>
         </section>
 
@@ -171,6 +186,7 @@ export default function PortfolioPage() {
       <Footer />
 
       <style>{`
+        a.project-row:hover h2 { color: var(--accent) !important; }
         @media (max-width: 768px) {
           .project-row { grid-template-columns: 1fr !important; gap: 16px !important; }
           .project-row > div:last-child { display: none; }

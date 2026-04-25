@@ -1,5 +1,6 @@
 import Nav from "@/components/marketing/Nav";
 import Footer from "@/components/marketing/Footer";
+import QuizWidget from "@/components/learning/QuizWidget";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -183,6 +184,9 @@ export default function GenerativeAIPage() {
             </div>
           </div>
         </section>
+
+        {/* ── QUIZ ── */}
+        <QuizWidget trackId="generative-ai" />
 
         {/* ── CTA ── */}
         <section style={{ padding: "100px 0", borderTop: "1px solid var(--border)", textAlign: "center" }}>

@@ -16,6 +16,8 @@ const WIX_TIERS = [
     period: "/yr",
     saving: null,
     highlight: false,
+    deposit: "$750 deposit",
+    depositNote: "50% upfront · remainder invoiced monthly",
     features: [
       "Up to 8 pages, fully custom",
       "Wix hosting included",
@@ -28,8 +30,9 @@ const WIX_TIERS = [
       "Monthly backup",
       "Email support (48h)",
     ],
-    cta: "Get started",
-    href: "/intake",
+    cta: "Pay deposit →",
+    href: "https://square.link/u/uHZe3zhU",
+    external: true,
   },
   {
     name: "Growth",
@@ -38,6 +41,8 @@ const WIX_TIERS = [
     period: "/2yr",
     saving: "Save $500",
     highlight: true,
+    deposit: "$625 deposit",
+    depositNote: "25% upfront · remainder invoiced monthly",
     features: [
       "Up to 15 pages, fully custom",
       "Wix hosting included",
@@ -52,8 +57,9 @@ const WIX_TIERS = [
       "Performance monitoring",
       "Email + chat support (24h)",
     ],
-    cta: "Most popular",
-    href: "/intake",
+    cta: "Pay deposit →",
+    href: "https://square.link/u/xU3pymu3",
+    external: true,
   },
   {
     name: "Pro",
@@ -62,6 +68,8 @@ const WIX_TIERS = [
     period: "/3yr",
     saving: "Save $1,100",
     highlight: false,
+    deposit: "$850 deposit",
+    depositNote: "25% upfront · remainder invoiced monthly",
     features: [
       "Unlimited pages",
       "Wix hosting included",
@@ -77,8 +85,9 @@ const WIX_TIERS = [
       "30-min monthly strategy call",
       "Priority same-day support",
     ],
-    cta: "Get started",
-    href: "/intake",
+    cta: "Pay deposit →",
+    href: "https://square.link/u/IQhafSf7",
+    external: true,
   },
 ];
 
@@ -187,9 +196,14 @@ export default function ServicesPage() {
                     {tier.name}
                   </div>
 
-                  <div style={{ marginBottom: 32 }}>
+                  <div style={{ marginBottom: 16 }}>
                     <span style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 52, fontWeight: 400, letterSpacing: "-0.03em", color: "var(--foreground)" }}>{tier.price}</span>
                     <span style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, color: "var(--dim)", marginLeft: 4 }}>{tier.period}</span>
+                  </div>
+
+                  <div style={{ marginBottom: 32, padding: "10px 14px", background: "rgba(212,255,58,0.06)", border: "1px solid rgba(212,255,58,0.15)", borderRadius: 4 }}>
+                    <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", fontWeight: 600, marginBottom: 2 }}>{tier.deposit}</div>
+                    <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.05em" }}>{tier.depositNote}</div>
                   </div>
 
                   <ul style={{ listStyle: "none", marginBottom: 36, flex: 1 }}>
@@ -204,8 +218,10 @@ export default function ServicesPage() {
                     })}
                   </ul>
 
-                  <Link
+                  <a
                     href={tier.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
                       display: "block",
                       textAlign: "center",
@@ -220,8 +236,8 @@ export default function ServicesPage() {
                       textDecoration: "none",
                     }}
                   >
-                    {tier.highlight ? tier.cta + " →" : tier.cta + " →"}
-                  </Link>
+                    {tier.cta}
+                  </a>
                 </div>
               ))}
             </div>
