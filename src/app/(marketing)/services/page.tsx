@@ -131,8 +131,8 @@ const ADDONS = [
 ];
 
 const EXTRA_ADDONS = [
-  { name: "E-commerce setup", price: "+$300/yr", desc: "Wix Stores, product catalog, payment gateway" },
-  { name: "Logo & Brand Kit", price: "$250", desc: "One-time. Logo, colors, fonts, brand guidelines" },
+  { name: "Wix Store & Product Catalog", price: "Included", desc: "Included with every Wix annual plan — store setup, product catalog, and payment gateway at no extra cost", highlight: true },
+  { name: "Logo & Brand Kit", price: "$100", desc: "One-time. Logo, colors, fonts, brand guidelines" },
   { name: "Google Workspace Email", price: "+$150/yr", desc: "Managed name@yourdomain.com for your team" },
   { name: "Rush Build", price: "+$500", desc: "Site live within 5 business days" },
 ];
@@ -365,7 +365,7 @@ export default function ServicesPage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }} className="extras-grid">
               {EXTRA_ADDONS.map((a) => (
-                <div key={a.name} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "24px" }}>
+                <div key={a.name} style={{ background: a.highlight ? "rgba(212,255,58,0.05)" : "var(--surface)", border: `1px solid ${a.highlight ? "rgba(212,255,58,0.3)" : "var(--border)"}`, borderRadius: 8, padding: "24px" }}>
                   <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 18, fontWeight: 500, marginBottom: 6, color: "var(--foreground)" }}>{a.name}</div>
                   <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 16, color: "var(--accent)", marginBottom: 10, fontWeight: 600 }}>{a.price}</div>
                   <div style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.6 }}>{a.desc}</div>
