@@ -18,9 +18,10 @@ const WIX_TIERS = [
     highlight: false,
     deposit: "$750 deposit",
     depositNote: "50% upfront · remaining balance invoiced monthly over the contract term",
+    tagline: "Full service. Your site stays live on Wix for the entire year.",
     features: [
       "Up to 8 pages, fully custom",
-      "Wix hosting included",
+      "Wix hosting included for 1 year",
       "Custom domain setup",
       "SSL certificate",
       "Mobile responsive design",
@@ -43,9 +44,10 @@ const WIX_TIERS = [
     highlight: true,
     deposit: "$625 deposit",
     depositNote: "25% upfront · remaining balance invoiced monthly over the contract term",
+    tagline: "Everything in Starter — extended to two years under the Techturi umbrella.",
     features: [
       "Up to 15 pages, fully custom",
-      "Wix hosting included",
+      "Wix hosting included for 2 years",
       "Custom domain setup",
       "SSL certificate",
       "Mobile responsive design",
@@ -70,9 +72,10 @@ const WIX_TIERS = [
     highlight: false,
     deposit: "$850 deposit",
     depositNote: "25% upfront · remaining balance invoiced monthly over the contract term",
+    tagline: "Three years of full service — plus a custom iOS or Android app included.",
     features: [
       "Unlimited pages",
-      "Wix hosting included",
+      "Wix hosting included for 3 years",
       "Custom domain setup",
       "SSL certificate",
       "Mobile responsive design",
@@ -84,6 +87,7 @@ const WIX_TIERS = [
       "Performance monitoring",
       "30-min monthly strategy call",
       "Priority same-day support",
+      "iOS or Android app included",
     ],
     cta: "Pay deposit →",
     href: "https://square.link/u/IQhafSf7",
@@ -196,6 +200,8 @@ export default function ServicesPage() {
                     {tier.name}
                   </div>
 
+                  <p style={{ fontSize: 13, color: "var(--dim)", lineHeight: 1.6, marginBottom: 16 }}>{tier.tagline}</p>
+
                   <div style={{ marginBottom: 16 }}>
                     <span style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 52, fontWeight: 400, letterSpacing: "-0.03em", color: "var(--foreground)" }}>{tier.price}</span>
                     <span style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, color: "var(--dim)", marginLeft: 4 }}>{tier.period}</span>
@@ -208,7 +214,7 @@ export default function ServicesPage() {
 
                   <ul style={{ listStyle: "none", marginBottom: 36, flex: 1 }}>
                     {tier.features.map((f) => {
-                      const isIos = f.startsWith("FREE iOS");
+                      const isIos = f.startsWith("FREE iOS") || f.startsWith("iOS or Android app");
                       return (
                         <li key={f} style={{ padding: "9px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: isIos ? "var(--accent)" : "var(--dim)", display: "flex", alignItems: "center", gap: 10, fontWeight: isIos ? 600 : 400 }}>
                           <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace", fontSize: 12 }}>{isIos ? "✦" : "→"}</span>
