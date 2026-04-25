@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Custom websites built to last. Wix subscription plans or permanent HTML/React builds — 5 years of maintenance included.",
+  description: "Custom websites built to last. Annual Wix plans or permanent HTML/React builds — hosting, maintenance, and support under the Techturi umbrella.",
 };
 
 const WIX_TIERS = [
@@ -17,7 +17,7 @@ const WIX_TIERS = [
     saving: null,
     highlight: false,
     deposit: "$750 deposit",
-    depositNote: "50% upfront · remainder invoiced monthly",
+    depositNote: "50% upfront · remaining balance invoiced monthly over the contract term",
     features: [
       "Up to 8 pages, fully custom",
       "Wix hosting included",
@@ -42,7 +42,7 @@ const WIX_TIERS = [
     saving: "Save $500",
     highlight: true,
     deposit: "$625 deposit",
-    depositNote: "25% upfront · remainder invoiced monthly",
+    depositNote: "25% upfront · remaining balance invoiced monthly over the contract term",
     features: [
       "Up to 15 pages, fully custom",
       "Wix hosting included",
@@ -69,7 +69,7 @@ const WIX_TIERS = [
     saving: "Save $1,100",
     highlight: false,
     deposit: "$850 deposit",
-    depositNote: "25% upfront · remainder invoiced monthly",
+    depositNote: "25% upfront · remaining balance invoiced monthly over the contract term",
     features: [
       "Unlimited pages",
       "Wix hosting included",
@@ -151,7 +151,7 @@ export default function ServicesPage() {
               <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>to outlast trends.</em>
             </h1>
             <p style={{ fontSize: 20, color: "var(--dim)", maxWidth: 580, lineHeight: 1.5 }}>
-              Two ways to work with Techturi. A yearly Wix subscription with hosting included, or a permanent custom build you own forever — both with five years of maintenance baked in.
+              Two ways to work with Techturi. An annual contract under the Techturi umbrella — hosting, maintenance, and support included — or a permanent custom build you own outright. Both backed by five years of coverage.
             </p>
           </div>
         </section>
@@ -161,10 +161,10 @@ export default function ServicesPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 60, flexWrap: "wrap", gap: 24 }}>
               <h2 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 48, fontWeight: 400, lineHeight: 1, letterSpacing: "-0.03em" }}>
-                Wix <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Subscriptions</em>
+                Wix <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Annual Plans</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // HOSTING INCLUDED · YEARLY BILLING
+                // HOSTING INCLUDED · ANNUAL CONTRACT
               </div>
             </div>
 
