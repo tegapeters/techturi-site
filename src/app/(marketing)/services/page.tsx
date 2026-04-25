@@ -247,6 +247,10 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
+            <p style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dimmer)", marginTop: 32, letterSpacing: "0.05em" }}>
+              After your contract ends, monthly maintenance is available to keep your site supported under Techturi. Rate is negotiable depending on the project.{" "}
+              <a href="/contact" style={{ color: "var(--accent)", textDecoration: "none" }}>Get in touch →</a>
+            </p>
           </div>
         </section>
 
