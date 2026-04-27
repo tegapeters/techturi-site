@@ -1,1 +1,30 @@
+name: IG Daily Brief
 
+on:
+  schedule:
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Write config
+        working-directory: techturi-ig-campaign
+        run: |
+          cat > campaign_config.json <<EOF
+          {
+            "campaign_start_date": "2026-04-25",
+            "to_email": "${{ secrets.IG_TO_EMAIL }}",
+            "gmail_address": "${{ secrets.IG_GMAIL_ADDRESS }}",
+            "gmail_app_password": "${{ secrets.IG_GMAIL_APP_PASSWORD }}"
+          }
+          EOF
+      - name: Send daily brief
+        working-directory: techturi-ig-campaign
+        run: python daily_brief.py
