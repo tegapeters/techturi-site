@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 26 — Not For You If</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .post {
+    width: 1080px; height: 1080px; background: #0A0A0B; color: #F5F4EE;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px; box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .post::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px; opacity: 0.4;
+  }
+  .header { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-bottom: 60px; }
+  .logo { font-size: 22px; font-weight: 500; }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+  .corner-label { font-size: 14px; letter-spacing: 0.25em; color: #4A4A45; text-transform: uppercase; }
+
+  .eyebrow {
+    position: relative; z-index: 2;
+    font-size: 13px; letter-spacing: 0.3em; color: #D4FF3A;
+    text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 36px; height: 2px; background: #D4FF3A; }
+
+  .title {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 74px; font-weight: 300; line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 50px;
+  }
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .nots {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .not-item {
+    padding: 18px 24px;
+    background: #131315;
+    border: 1px solid #1F1F22;
+    border-left: 3px solid #4A4A45;
+    border-radius: 4px;
+    display: flex; align-items: center; gap: 20px;
+  }
+
+  .not-x {
+    color: #4A4A45;
+    font-size: 22px;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 24px;
+  }
+
+  .not-text {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 400;
+    color: #8B8B85; line-height: 1.4;
+    letter-spacing: -0.005em;
+  }
+
+  .flip {
+    position: relative; z-index: 2;
+    padding: 32px 36px;
+    background: rgba(212,255,58,0.06);
+    border-left: 3px solid #D4FF3A;
+    margin-bottom: 30px;
+  }
+
+  .flip-label {
+    font-size: 12px; letter-spacing: 0.3em;
+    color: #D4FF3A; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .flip-text {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 400; line-height: 1.35;
+    color: #F5F4EE;
+  }
+  .flip-text em { color: #D4FF3A; font-style: italic; }
+
+  .footer {
+    position: absolute; bottom: 80px; left: 80px; right: 80px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; border-top: 1px solid #1F1F22;
+  }
+  .footer-label { font-size: 13px; color: #4A4A45; letter-spacing: 0.25em; text-transform: uppercase; }
+  .cta-url { font-size: 18px; color: #F5F4EE; font-weight: 500; }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="corner-label">DAY 26 / 30</div>
+  </div>
+
+  <div class="eyebrow">Honest Positioning</div>
+  <div class="title">Techturi is <em>not</em><br>for everyone.</div>
+
+  <div class="nots">
+    <div class="not-item">
+      <div class="not-x">✕</div>
+      <div class="not-text">"Get rich in 30 days" chasers</div>
+    </div>
+    <div class="not-item">
+      <div class="not-x">✕</div>
+      <div class="not-text">Clients shopping for the cheapest site</div>
+    </div>
+    <div class="not-item">
+      <div class="not-x">✕</div>
+      <div class="not-text">Anyone convinced AI replaces fundamentals</div>
+    </div>
+    <div class="not-item">
+      <div class="not-x">✕</div>
+      <div class="not-text">Recruiters scraping for leads</div>
+    </div>
+  </div>
+
+  <div class="flip">
+    <div class="flip-label">// WHO IT <em style="color:#D4FF3A;">IS</em> FOR</div>
+    <div class="flip-text">People who want to build <em>real skills</em> and <em>real businesses.</em> Slowly. Well.</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// IF THAT'S YOU</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org</div>
+  </div>
+</div>
+</body>
+</html>

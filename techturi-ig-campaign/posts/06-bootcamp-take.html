@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 06 — You Don't Need a Bootcamp</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  .post {
+    width: 1080px;
+    height: 1080px;
+    background: #0A0A0B;
+    color: #F5F4EE;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px;
+    box-sizing: border-box;
+  }
+
+  .post::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.5;
+  }
+
+  .header {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 500; letter-spacing: -0.01em;
+  }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+
+  .corner-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; letter-spacing: 0.25em;
+    color: #D4FF3A; text-transform: uppercase;
+  }
+
+  .quote-mark {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 200px; line-height: 1;
+    color: #D4FF3A; font-weight: 300;
+    margin-bottom: -40px;
+  }
+
+  .headline {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 96px; font-weight: 300; line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 60px;
+  }
+
+  .headline em {
+    font-style: italic; color: #D4FF3A; font-weight: 300;
+  }
+
+  .body-text {
+    position: relative; z-index: 2;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px; line-height: 1.7;
+    color: #8B8B85; letter-spacing: 0;
+    max-width: 780px;
+  }
+
+  .body-text .accent { color: #D4FF3A; }
+  .body-text strong { color: #F5F4EE; font-weight: 500; }
+
+  .footer {
+    position: absolute;
+    bottom: 80px; left: 80px; right: 80px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 30px; border-top: 1px solid #1F1F22;
+  }
+
+  .footer-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px; color: #4A4A45;
+    letter-spacing: 0.25em; text-transform: uppercase;
+  }
+
+  .cta-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px; color: #F5F4EE; font-weight: 500;
+  }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo">
+      <span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span>
+    </div>
+    <div class="corner-label">HOT TAKE / DAY 06</div>
+  </div>
+
+  <div class="quote-mark">"</div>
+
+  <div class="headline">
+    You don't need<br>a <em>bootcamp.</em>
+  </div>
+
+  <div class="body-text">
+    <strong>$15k</strong> buys you access to <strong>free</strong> AWS and Oracle courses.<br><br>
+    A Discord channel. A "career coach" with a script.<br><br>
+    The <span class="accent">same material</span> is online. <span class="accent">Free.</span> Forever.<br><br>
+    The only thing bootcamps sell is <strong>urgency</strong>.<br>
+    Buy that elsewhere.
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// FREE PATH AT</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/learn</div>
+  </div>
+</div>
+</body>
+</html>

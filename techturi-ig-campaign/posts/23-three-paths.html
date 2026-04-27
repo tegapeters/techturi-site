@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 23 — Three Paths</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .post {
+    width: 1080px; height: 1350px; background: #0A0A0B; color: #F5F4EE;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px; box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .post::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px; opacity: 0.4;
+  }
+  .header { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-bottom: 50px; }
+  .logo { font-size: 22px; font-weight: 500; }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+  .corner-label { font-size: 14px; letter-spacing: 0.25em; color: #4A4A45; text-transform: uppercase; }
+
+  .eyebrow {
+    position: relative; z-index: 2;
+    font-size: 14px; letter-spacing: 0.3em; color: #D4FF3A;
+    text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .eyebrow::before { content: ''; width: 40px; height: 2px; background: #D4FF3A; }
+
+  .title {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 88px; font-weight: 300; line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 60px;
+  }
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .paths {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .path {
+    padding: 32px 34px;
+    background: #131315; border: 1px solid #1F1F22;
+    border-radius: 8px;
+    display: flex; align-items: center; gap: 28px;
+  }
+
+  .path.featured {
+    background: linear-gradient(135deg, #1A1F0A 0%, #131315 100%);
+    border-color: #A8CC2E;
+  }
+
+  .path-num {
+    font-family: 'Fraunces', serif;
+    font-size: 72px; font-weight: 300;
+    color: #D4FF3A; line-height: 1;
+    letter-spacing: -0.03em;
+    min-width: 80px;
+  }
+
+  .path-body { flex: 1; }
+
+  .path-name {
+    font-family: 'Fraunces', serif;
+    font-size: 32px; font-weight: 500;
+    margin-bottom: 6px; letter-spacing: -0.01em;
+  }
+
+  .path-desc {
+    font-size: 14px; color: #8B8B85; line-height: 1.5;
+  }
+
+  .path-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px; color: #D4FF3A;
+    font-weight: 500;
+    text-align: right;
+    min-width: 180px;
+  }
+
+  .path-price .sub {
+    display: block; font-size: 11px; color: #8B8B85;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    margin-top: 4px; font-weight: 400;
+  }
+
+  .footer {
+    position: absolute; bottom: 80px; left: 80px; right: 80px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid #1F1F22;
+  }
+  .footer-label { font-size: 13px; color: #4A4A45; letter-spacing: 0.25em; text-transform: uppercase; }
+  .cta-url { font-size: 18px; color: #F5F4EE; font-weight: 500; }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="corner-label">DAY 23 / 30</div>
+  </div>
+
+  <div class="eyebrow">Studio Services</div>
+  <div class="title">Need a site?<br><em>Three paths.</em></div>
+
+  <div class="paths">
+    <div class="path featured">
+      <div class="path-num">01</div>
+      <div class="path-body">
+        <div class="path-name">Wix Studio Subscription</div>
+        <div class="path-desc">We build. You edit. Cancel anytime. No contracts.</div>
+      </div>
+      <div class="path-price">$149–499<span class="sub">per month</span></div>
+    </div>
+
+    <div class="path">
+      <div class="path-num">02</div>
+      <div class="path-body">
+        <div class="path-name">Custom HTML / React</div>
+        <div class="path-desc">You own the code. 5-year maintenance included.</div>
+      </div>
+      <div class="path-price">From $4,500<span class="sub">one-time + maint.</span></div>
+    </div>
+
+    <div class="path">
+      <div class="path-num">03</div>
+      <div class="path-body">
+        <div class="path-name">Not Sure Yet?</div>
+        <div class="path-desc">Free 15-min call. No pitch. Figure it out together.</div>
+      </div>
+      <div class="path-price">Free<span class="sub">no commitment</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// BOOK OR BROWSE</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/book</div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 12 — Networking then Cybersecurity</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .post {
+    width: 1080px; height: 1080px; background: #0A0A0B; color: #F5F4EE;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px; box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .post::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px; opacity: 0.4;
+  }
+  .header { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-bottom: 70px; }
+  .logo { font-size: 22px; font-weight: 500; }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+  .corner-label { font-size: 14px; letter-spacing: 0.25em; color: #4A4A45; text-transform: uppercase; }
+
+  .eyebrow {
+    position: relative; z-index: 2;
+    font-size: 13px; letter-spacing: 0.3em; color: #D4FF3A;
+    text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 36px; height: 2px; background: #D4FF3A; }
+
+  .title {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 88px; font-weight: 300; line-height: 1;
+    letter-spacing: -0.03em; margin-bottom: 60px;
+  }
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .flow {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .stage {
+    flex: 1; padding: 36px 28px;
+    background: #131315; border: 1px solid #1F1F22;
+    border-radius: 8px; text-align: center;
+  }
+
+  .stage.primary {
+    border-color: #D4FF3A;
+    background: linear-gradient(135deg, #1A1F0A 0%, #131315 100%);
+  }
+
+  .stage-num {
+    font-size: 11px; letter-spacing: 0.3em;
+    color: #4A4A45; text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .stage.primary .stage-num { color: #D4FF3A; }
+
+  .stage-name {
+    font-family: 'Fraunces', serif;
+    font-size: 36px; font-weight: 500;
+    margin-bottom: 12px; letter-spacing: -0.01em;
+  }
+
+  .stage-duration {
+    font-size: 13px; color: #8B8B85;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  .arrow-between {
+    font-size: 48px; color: #D4FF3A;
+    font-weight: 300;
+  }
+
+  .why {
+    position: relative; z-index: 2;
+    padding: 32px 36px;
+    background: rgba(212,255,58,0.05);
+    border-left: 3px solid #D4FF3A;
+    margin-bottom: 40px;
+  }
+
+  .why-label {
+    font-size: 12px; letter-spacing: 0.3em;
+    color: #D4FF3A; text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .why-text {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 400; line-height: 1.4;
+    color: #F5F4EE;
+  }
+  .why-text em { color: #D4FF3A; font-style: italic; }
+
+  .bonus-row {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .bonus {
+    padding: 18px 22px;
+    background: #131315;
+    border: 1px solid #1F1F22;
+    border-radius: 6px;
+    font-size: 15px; color: #8B8B85;
+    line-height: 1.5;
+  }
+  .bonus strong { color: #D4FF3A; font-weight: 500; }
+
+  .footer {
+    position: absolute; bottom: 80px; left: 80px; right: 80px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid #1F1F22;
+  }
+  .footer-label { font-size: 13px; color: #4A4A45; letter-spacing: 0.25em; text-transform: uppercase; }
+  .cta-url { font-size: 18px; color: #F5F4EE; font-weight: 500; }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="corner-label">DAY 12 / 30</div>
+  </div>
+
+  <div class="eyebrow">Cyber Career Path</div>
+  <div class="title">Wires <em>before</em><br>walls.</div>
+
+  <div class="flow">
+    <div class="stage primary">
+      <div class="stage-num">/ STEP 01</div>
+      <div class="stage-name">Networking</div>
+      <div class="stage-duration">~4 months</div>
+    </div>
+    <div class="arrow-between">→</div>
+    <div class="stage">
+      <div class="stage-num">/ STEP 02</div>
+      <div class="stage-name">Cybersecurity</div>
+      <div class="stage-duration">~5 months</div>
+    </div>
+  </div>
+
+  <div class="why">
+    <div class="why-label">// WHY THIS ORDER</div>
+    <div class="why-text">You can't <em>defend</em> what you<br>don't <em>understand.</em></div>
+  </div>
+
+  <div class="bonus-row">
+    <div class="bonus"><strong>→</strong> TCP/IP. Subnetting. Routing. Firewalls.</div>
+    <div class="bonus"><strong>→</strong> Then Security+. Then blue/red team.</div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// FREE CURATED PATH</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/learn/networking</div>
+  </div>
+</div>
+</body>
+</html>

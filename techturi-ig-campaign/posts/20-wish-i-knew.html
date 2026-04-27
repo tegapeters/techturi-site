@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 20 — What I Wish I Knew at 22</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  .post {
+    width: 1080px; height: 1350px; background: #0A0A0B; color: #F5F4EE;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px; box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .post::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px; opacity: 0.4;
+  }
+  .header { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-bottom: 60px; }
+  .logo { font-size: 22px; font-weight: 500; }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+  .corner-label { font-size: 14px; letter-spacing: 0.25em; color: #4A4A45; text-transform: uppercase; }
+
+  .eyebrow {
+    position: relative; z-index: 2;
+    font-size: 14px; letter-spacing: 0.3em; color: #D4FF3A;
+    text-transform: uppercase; margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .eyebrow::before { content: ''; width: 40px; height: 2px; background: #D4FF3A; }
+
+  .title {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 90px; font-weight: 300; line-height: 0.98;
+    letter-spacing: -0.03em; margin-bottom: 20px;
+  }
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .subtitle {
+    position: relative; z-index: 2;
+    font-size: 18px; color: #8B8B85; letter-spacing: 0;
+    margin-bottom: 60px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #1F1F22;
+  }
+
+  .lessons {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; gap: 40px;
+    margin-bottom: 60px;
+  }
+
+  .lesson {
+    display: flex; align-items: flex-start; gap: 28px;
+  }
+
+  .lesson-mark {
+    font-family: 'JetBrains Mono', monospace;
+    color: #D4FF3A; font-size: 32px;
+    font-weight: 500; padding-top: 4px;
+    min-width: 48px;
+  }
+
+  .lesson-body {
+    flex: 1;
+  }
+
+  .lesson-text {
+    font-family: 'Fraunces', serif;
+    font-size: 30px; font-weight: 400; line-height: 1.35;
+    color: #F5F4EE; letter-spacing: -0.01em;
+    margin-bottom: 10px;
+  }
+  .lesson-text em { color: #D4FF3A; font-style: italic; }
+
+  .lesson-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; color: #4A4A45;
+    letter-spacing: 0.15em; text-transform: uppercase;
+  }
+
+  .footer {
+    position: absolute; bottom: 80px; left: 80px; right: 80px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 28px; border-top: 1px solid #1F1F22;
+  }
+  .footer-label { font-size: 13px; color: #4A4A45; letter-spacing: 0.25em; text-transform: uppercase; }
+  .cta-url { font-size: 18px; color: #F5F4EE; font-weight: 500; }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="corner-label">DAY 20 / 30</div>
+  </div>
+
+  <div class="eyebrow">Career Retrospective</div>
+  <div class="title">What I wish<br>I knew <em>at 22.</em></div>
+  <div class="subtitle">Sr. Engineer at Oracle. Six years in. Here's the list.</div>
+
+  <div class="lessons">
+    <div class="lesson">
+      <div class="lesson-mark">/01</div>
+      <div class="lesson-body">
+        <div class="lesson-text">Certifications <em>open doors.</em><br>They don't keep you inside.</div>
+        <div class="lesson-note">// SKILLS DO THAT</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-mark">/02</div>
+      <div class="lesson-body">
+        <div class="lesson-text">The senior people who <em>helped me</em><br>weren't paid to.</div>
+        <div class="lesson-note">// ASK ANYWAY</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-mark">/03</div>
+      <div class="lesson-body">
+        <div class="lesson-text">The best interview prep is<br><em>building boring things well.</em></div>
+        <div class="lesson-note">// NOT LEETCODE MARATHONS</div>
+      </div>
+    </div>
+    <div class="lesson">
+      <div class="lesson-mark">/04</div>
+      <div class="lesson-body">
+        <div class="lesson-text">Every "overnight" career<br>took <em>five years.</em></div>
+        <div class="lesson-note">// INCLUDING MINE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// EVERY RESOURCE I WISH I HAD</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/learn</div>
+  </div>
+</div>
+</body>
+</html>

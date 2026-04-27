@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reel 21 — Cert Ranking Animation</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0A0A0B; color: #F5F4EE;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+  }
+
+  .reel {
+    width: 100vw; height: 100vh;
+    position: relative; overflow: hidden;
+  }
+
+  .reel::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 60px 60px; opacity: 0.4;
+  }
+
+  .watermark {
+    position: absolute; top: 40px; left: 40px;
+    font-size: 20px; font-weight: 500;
+    letter-spacing: -0.01em; z-index: 10;
+  }
+  .watermark .bracket, .watermark .dot { color: #D4FF3A; }
+
+  .counter {
+    position: absolute; top: 40px; right: 40px;
+    font-size: 14px; letter-spacing: 0.25em;
+    color: #4A4A45; text-transform: uppercase; z-index: 10;
+  }
+
+  /* Intro scene */
+  .intro {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 0 60px; text-align: center;
+    opacity: 0;
+    animation: showIntro 3s ease-out 0s forwards;
+  }
+
+  @keyframes showIntro {
+    0% { opacity: 0; transform: translateY(30px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-30px); }
+  }
+
+  .intro-title {
+    font-family: 'Fraunces', serif;
+    font-size: 140px; font-weight: 300;
+    line-height: 0.95; letter-spacing: -0.04em;
+    margin-bottom: 30px;
+  }
+  .intro-title em { font-style: italic; color: #D4FF3A; }
+
+  .intro-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px; color: #8B8B85;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+
+  /* Tier list */
+  .tiers {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 20px;
+    padding: 100px 50px;
+    opacity: 0;
+    animation: showTiers 28s ease-out 3s forwards;
+  }
+
+  @keyframes showTiers {
+    0% { opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+  .tier {
+    display: flex; align-items: center;
+    background: #131315; border: 1px solid #1F1F22;
+    border-radius: 8px; overflow: hidden;
+    opacity: 0;
+  }
+
+  .tier-s { animation: tierIn 0.6s ease-out 4s both; }
+  .tier-a { animation: tierIn 0.6s ease-out 7s both; }
+  .tier-b { animation: tierIn 0.6s ease-out 10s both; }
+  .tier-c { animation: tierIn 0.6s ease-out 13s both; }
+
+  @keyframes tierIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .tier-label {
+    font-family: 'Fraunces', serif;
+    font-size: 80px; font-weight: 400;
+    line-height: 1; font-style: italic;
+    width: 140px; text-align: center;
+    padding: 30px 0;
+    flex-shrink: 0;
+  }
+
+  .tier-s .tier-label {
+    background: #D4FF3A; color: #0A0A0B;
+  }
+  .tier-a .tier-label {
+    background: rgba(212,255,58,0.25); color: #D4FF3A;
+  }
+  .tier-b .tier-label {
+    color: #8B8B85; border-right: 1px solid #1F1F22;
+  }
+  .tier-c .tier-label {
+    color: #4A4A45; border-right: 1px solid #1F1F22;
+  }
+
+  .tier-certs {
+    flex: 1; padding: 20px 28px;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+
+  .cert-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: #F5F4EE;
+    letter-spacing: 0;
+  }
+
+  .tier-c .cert-line { color: #8B8B85; font-size: 20px; }
+
+  /* CTA final scene */
+  .final-cta {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 0 60px; text-align: center;
+    opacity: 0;
+    animation: showFinal 6s ease-out 32s forwards;
+  }
+
+  @keyframes showFinal {
+    0% { opacity: 0; transform: translateY(30px); }
+    15% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .final-headline {
+    font-family: 'Fraunces', serif;
+    font-size: 80px; font-weight: 300;
+    line-height: 1.05; letter-spacing: -0.03em;
+    margin-bottom: 40px;
+    max-width: 900px;
+  }
+  .final-headline em { font-style: italic; color: #D4FF3A; }
+
+  .final-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 100px; font-weight: 500;
+    letter-spacing: -0.02em; margin-bottom: 24px;
+  }
+  .final-logo .bracket, .final-logo .dot { color: #D4FF3A; }
+
+  .final-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px; color: #F5F4EE;
+  }
+  .final-url .arrow { color: #D4FF3A; margin-right: 12px; }
+</style>
+</head>
+<body>
+<div class="reel">
+  <div class="watermark"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+  <div class="counter">DAY 21 / 30</div>
+
+  <div class="intro">
+    <div class="intro-title">11 certs.<br><em>Ranked.</em></div>
+    <div class="intro-sub">Save before you spend.</div>
+  </div>
+
+  <div class="tiers">
+    <div class="tier tier-s">
+      <div class="tier-label">S</div>
+      <div class="tier-certs">
+        <div class="cert-line">OCI GenAI Professional</div>
+        <div class="cert-line">Google Data Analytics</div>
+      </div>
+    </div>
+    <div class="tier tier-a">
+      <div class="tier-label">A</div>
+      <div class="tier-certs">
+        <div class="cert-line">PSM II · PSPO II</div>
+        <div class="cert-line">Microsoft PL-300</div>
+      </div>
+    </div>
+    <div class="tier tier-b">
+      <div class="tier-label">B</div>
+      <div class="tier-certs">
+        <div class="cert-line">AWS Cloud Practitioner</div>
+        <div class="cert-line">ITIL Foundations</div>
+      </div>
+    </div>
+    <div class="tier tier-c">
+      <div class="tier-label">C</div>
+      <div class="tier-certs">
+        <div class="cert-line">Most of the rest.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <div class="final-headline">Full cert <em>strategy.</em></div>
+    <div class="final-logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="final-url"><span class="arrow">→</span>techturi.org/learn</div>
+  </div>
+</div>
+</body>
+</html>

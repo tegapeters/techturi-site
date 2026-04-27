@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 01 — Techturi is Live</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  /* Instagram square: 1080x1080. We render at that size. */
+  .post {
+    width: 1080px;
+    height: 1080px;
+    background: #0A0A0B;
+    color: #F5F4EE;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+  }
+
+  /* Grid texture */
+  .post::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .corner-label {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    color: #8B8B85;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .corner-label .dot { color: #D4FF3A; margin-right: 10px; }
+
+  .corner-date {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.25em;
+    color: #4A4A45;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 80px;
+    z-index: 2;
+  }
+
+  .logo-huge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 140px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 40px;
+    color: #F5F4EE;
+    line-height: 1;
+  }
+
+  .logo-huge .bracket,
+  .logo-huge .dot {
+    color: #D4FF3A;
+  }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 82px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 40px;
+  }
+
+  .headline em {
+    font-style: italic;
+    font-weight: 300;
+    color: #D4FF3A;
+  }
+
+  .status-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: #F5F4EE;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid #D4FF3A;
+    border-radius: 4px;
+    background: rgba(212, 255, 58, 0.08);
+  }
+
+  .status-dot {
+    width: 10px;
+    height: 10px;
+    background: #D4FF3A;
+    border-radius: 50%;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.3); }
+  }
+
+  .bottom {
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 2;
+  }
+
+  .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    color: #F5F4EE;
+    letter-spacing: 0.02em;
+  }
+
+  .url .arrow { color: #D4FF3A; margin-right: 12px; }
+
+  .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #4A4A45;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .meta .accent { color: #D4FF3A; }
+
+  /* Accent marks in corners */
+  .accent-corner {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-color: #D4FF3A;
+    z-index: 2;
+  }
+  .accent-tl { top: 140px; left: 60px; border-top: 2px solid; border-left: 2px solid; }
+  .accent-tr { top: 140px; right: 60px; border-top: 2px solid; border-right: 2px solid; }
+  .accent-bl { bottom: 140px; left: 60px; border-bottom: 2px solid; border-left: 2px solid; }
+  .accent-br { bottom: 140px; right: 60px; border-bottom: 2px solid; border-right: 2px solid; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="corner-label"><span class="dot">●</span>NOW LIVE</div>
+  <div class="corner-date">DAY 01 / 30</div>
+
+  <div class="accent-corner accent-tl"></div>
+  <div class="accent-corner accent-tr"></div>
+  <div class="accent-corner accent-bl"></div>
+  <div class="accent-corner accent-br"></div>
+
+  <div class="center">
+    <div class="logo-huge">
+      <span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span>
+    </div>
+
+    <div class="headline">
+      is <em>live.</em>
+    </div>
+
+    <div class="status-line">
+      <span class="status-dot"></span>
+      Learn. Build. Launch.
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="url">
+      <span class="arrow">→</span>techturi.org
+    </div>
+    <div class="meta">
+      <span class="accent">//</span> HOUSTON, TX<br>
+      <span class="accent">//</span> EST. 2024
+    </div>
+  </div>
+</div>
+</body>
+</html>

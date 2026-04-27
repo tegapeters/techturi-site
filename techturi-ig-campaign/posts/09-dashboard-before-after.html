@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 09 — Dashboard Before/After</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  .post {
+    width: 1080px; height: 1080px;
+    background: #0A0A0B; color: #F5F4EE;
+    position: relative; overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 70px; box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .post::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.4;
+  }
+
+  .header { position: relative; z-index: 2; display: flex; justify-content: space-between; margin-bottom: 40px; }
+  .logo { font-size: 22px; font-weight: 500; }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+  .corner-label { font-size: 14px; letter-spacing: 0.25em; color: #4A4A45; text-transform: uppercase; }
+
+  .eyebrow {
+    position: relative; z-index: 2;
+    font-size: 13px; letter-spacing: 0.3em; color: #D4FF3A;
+    text-transform: uppercase; margin-bottom: 20px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::before { content: ''; width: 36px; height: 2px; background: #D4FF3A; }
+
+  .title {
+    position: relative; z-index: 2;
+    font-family: 'Fraunces', serif;
+    font-size: 68px; font-weight: 300; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 40px;
+  }
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .comparison {
+    position: relative; z-index: 2;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .column {
+    background: #131315;
+    border: 1px solid #1F1F22;
+    border-radius: 6px;
+    padding: 28px;
+    min-height: 340px;
+  }
+
+  .col-label {
+    font-size: 11px; letter-spacing: 0.3em;
+    text-transform: uppercase; margin-bottom: 20px;
+    padding-bottom: 14px; border-bottom: 1px solid #1F1F22;
+  }
+  .col-label.before { color: #4A4A45; }
+  .col-label.after { color: #D4FF3A; }
+
+  /* Fake dashboard elements */
+  .fake-chart {
+    display: flex; align-items: flex-end; gap: 8px;
+    height: 100px; margin-bottom: 20px;
+  }
+  .bar {
+    flex: 1; background: #4A4A45; border-radius: 2px 2px 0 0;
+  }
+  .bar.green { background: #D4FF3A; }
+
+  .fake-metric {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #1F1F22;
+    font-size: 13px;
+  }
+  .metric-label { color: #8B8B85; }
+  .metric-value { color: #F5F4EE; }
+  .metric-value.accent { color: #D4FF3A; font-weight: 600; }
+
+  .noise-line {
+    height: 6px; background: #4A4A45; border-radius: 3px;
+    margin-bottom: 8px; opacity: 0.5;
+  }
+  .noise-line.short { width: 60%; }
+  .noise-line.medium { width: 80%; }
+
+  .insight {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 400; line-height: 1.3;
+    color: #F5F4EE; padding: 16px 0;
+  }
+  .insight em { color: #D4FF3A; font-style: italic; }
+
+  .insight-value {
+    font-family: 'Fraunces', serif;
+    font-size: 56px; font-weight: 300; line-height: 1;
+    color: #D4FF3A; letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .insight-context {
+    font-size: 12px; color: #8B8B85;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .takeaway {
+    position: relative; z-index: 2;
+    padding: 24px 28px;
+    background: rgba(212,255,58,0.06);
+    border-left: 3px solid #D4FF3A;
+    margin-bottom: 30px;
+  }
+  .takeaway-text {
+    font-family: 'Fraunces', serif;
+    font-size: 26px; font-weight: 300; line-height: 1.4;
+    color: #F5F4EE;
+  }
+  .takeaway-text em { color: #D4FF3A; font-style: italic; }
+
+  .footer {
+    position: absolute; bottom: 70px; left: 70px; right: 70px;
+    z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; border-top: 1px solid #1F1F22;
+  }
+  .footer-label { font-size: 13px; color: #4A4A45; letter-spacing: 0.25em; text-transform: uppercase; }
+  .cta-url { font-size: 18px; color: #F5F4EE; font-weight: 500; }
+  .cta-url .arrow { color: #D4FF3A; margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="corner-label">DAY 09 / 30</div>
+  </div>
+
+  <div class="eyebrow">Dashboard Design</div>
+  <div class="title">Same data.<br>Different <em>story.</em></div>
+
+  <div class="comparison">
+    <div class="column">
+      <div class="col-label before">/ BEFORE — JUNIOR</div>
+      <div class="fake-chart">
+        <div class="bar" style="height:60%"></div>
+        <div class="bar" style="height:30%"></div>
+        <div class="bar" style="height:80%"></div>
+        <div class="bar" style="height:45%"></div>
+        <div class="bar" style="height:70%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar" style="height:40%"></div>
+      </div>
+      <div class="fake-metric"><span class="metric-label">Total revenue</span><span class="metric-value">$1,247,893.44</span></div>
+      <div class="fake-metric"><span class="metric-label">Avg order value</span><span class="metric-value">$87.21</span></div>
+      <div class="fake-metric"><span class="metric-label">Customers</span><span class="metric-value">14,307</span></div>
+      <div class="fake-metric"><span class="metric-label">Returns</span><span class="metric-value">4.1%</span></div>
+      <div class="fake-metric"><span class="metric-label">Margin</span><span class="metric-value">22.4%</span></div>
+      <div class="noise-line medium"></div>
+      <div class="noise-line short"></div>
+    </div>
+
+    <div class="column">
+      <div class="col-label after">// AFTER — SENIOR</div>
+      <div class="insight-value">+31%</div>
+      <div class="insight-context">Q3 revenue vs Q2</div>
+      <div style="height: 16px;"></div>
+      <div class="fake-chart">
+        <div class="bar" style="height:40%"></div>
+        <div class="bar" style="height:55%"></div>
+        <div class="bar green" style="height:90%"></div>
+      </div>
+      <div class="insight">Driven almost entirely by the <em>2nd-purchase cohort.</em></div>
+      <div style="height: 10px;"></div>
+      <div class="insight" style="font-size: 18px; color: #8B8B85;">Recommend: double down on retention email.</div>
+    </div>
+  </div>
+
+  <div class="takeaway">
+    <div class="takeaway-text">The difference isn't the <em>tool.</em><br>It's knowing what to <em>leave out.</em></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-label">// DASHBOARD DEEP DIVES</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/learn/data-analytics</div>
+  </div>
+</div>
+</body>
+</html>

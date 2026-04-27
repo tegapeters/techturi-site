@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Reel 11 — Free Certs Animation</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0A0A0B;
+    color: #F5F4EE;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+  }
+
+  /* This div is the 9:16 reel frame. In Chrome fullscreen (F11), it fills the screen. */
+  .reel {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Grid texture */
+  .reel::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  /* Top progress bar */
+  .progress {
+    position: absolute;
+    top: 40px; left: 40px; right: 40px;
+    height: 4px;
+    background: #1F1F22;
+    border-radius: 2px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: #D4FF3A;
+    width: 0;
+    animation: fill 31s linear forwards;
+  }
+
+  @keyframes fill {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  /* Logo watermark — always visible */
+  .watermark {
+    position: absolute;
+    top: 70px; left: 40px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    z-index: 10;
+  }
+  .watermark .bracket, .watermark .dot { color: #D4FF3A; }
+
+  .counter {
+    position: absolute;
+    top: 70px; right: 40px;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    color: #4A4A45;
+    text-transform: uppercase;
+    z-index: 10;
+  }
+
+  /* Scene container */
+  .scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 60px;
+    text-align: center;
+    opacity: 0;
+  }
+
+  /* Each scene animates in and out */
+  .scene.s1 { animation: show 3s ease-out 0s both; }
+  .scene.s2 { animation: show 3s ease-out 3s both; }
+  .scene.s3 { animation: show 3s ease-out 6s both; }
+  .scene.s4 { animation: show 3s ease-out 9s both; }
+  .scene.s5 { animation: show 3s ease-out 12s both; }
+  .scene.s6 { animation: show 3s ease-out 15s both; }
+  .scene.s7 { animation: show 3s ease-out 18s both; }
+  .scene.s8 { animation: show 4s ease-out 21s both; }
+  .scene.s9 { animation: show 6s ease-out 25s both; }
+
+  @keyframes show {
+    0% { opacity: 0; transform: translateY(30px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+  }
+
+  /* Keep final scene visible */
+  .scene.s9 {
+    animation-fill-mode: forwards;
+  }
+  @keyframes showFinal {
+    0% { opacity: 0; transform: translateY(30px); }
+    15% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  .scene.s9 { animation-name: showFinal; }
+
+  .eyebrow {
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    color: #D4FF3A;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .eyebrow::before { content: ''; width: 40px; height: 2px; background: #D4FF3A; }
+
+  .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .display em { font-style: italic; color: #D4FF3A; font-weight: 300; }
+
+  .s1 .display { font-size: 160px; }
+  .s2 .display { font-size: 90px; line-height: 1.05; }
+
+  .cert-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 28px;
+    color: #D4FF3A;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .cert-name {
+    font-family: 'Fraunces', serif;
+    font-size: 96px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 30px;
+  }
+
+  .cert-name em { font-style: italic; color: #D4FF3A; }
+
+  .cert-provider {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px;
+    color: #8B8B85;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .price-badge {
+    display: inline-block;
+    margin-top: 40px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    padding: 10px 24px;
+    border: 1px solid #D4FF3A;
+    color: #D4FF3A;
+    border-radius: 4px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .s8 .display { font-size: 110px; line-height: 0.95; }
+
+  .s9-logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 140px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .s9-logo .bracket, .s9-logo .dot { color: #D4FF3A; }
+
+  .s9-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    color: #F5F4EE;
+    margin-top: 40px;
+    letter-spacing: 0.02em;
+  }
+  .s9-url .arrow { color: #D4FF3A; margin-right: 16px; }
+</style>
+</head>
+<body>
+<div class="reel">
+
+  <div class="progress"><div class="progress-fill"></div></div>
+  <div class="watermark"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+  <div class="counter">DAY 11 / 30</div>
+
+  <div class="scene s1">
+    <div class="eyebrow">Six years at Oracle</div>
+    <div class="display"><em>11</em></div>
+    <div class="display" style="font-size: 48px; margin-top: 20px;">certifications.</div>
+  </div>
+
+  <div class="scene s2">
+    <div class="display">But only <em>5</em> actually<br>got me <em>hired.</em></div>
+  </div>
+
+  <div class="scene s3">
+    <div class="cert-number">01 / 05</div>
+    <div class="cert-name">AWS Cloud<br><em>Practitioner</em></div>
+    <div class="cert-provider">// AMAZON WEB SERVICES</div>
+    <div class="price-badge">Free voucher events</div>
+  </div>
+
+  <div class="scene s4">
+    <div class="cert-number">02 / 05</div>
+    <div class="cert-name">Google Data<br><em>Analytics</em></div>
+    <div class="cert-provider">// COURSERA</div>
+    <div class="price-badge">Free audit available</div>
+  </div>
+
+  <div class="scene s5">
+    <div class="cert-number">03 / 05</div>
+    <div class="cert-name">Microsoft<br><em>PL-300</em></div>
+    <div class="cert-provider">// POWER BI</div>
+    <div class="price-badge">Free study · $165 exam</div>
+  </div>
+
+  <div class="scene s6">
+    <div class="cert-number">04 / 05</div>
+    <div class="cert-name">EXIN AI<br><em>Essentials</em></div>
+    <div class="cert-provider">// AI FUNDAMENTALS</div>
+    <div class="price-badge">Free materials</div>
+  </div>
+
+  <div class="scene s7">
+    <div class="cert-number">05 / 05</div>
+    <div class="cert-name">Professional<br>Scrum <em>Master I</em></div>
+    <div class="cert-provider">// SCRUM.ORG</div>
+    <div class="price-badge">Free prep · $200 exam</div>
+  </div>
+
+  <div class="scene s8">
+    <div class="eyebrow">Total spend</div>
+    <div class="display">$0 — <em>$365.</em></div>
+    <div class="display" style="font-size: 32px; margin-top: 30px; color: #8B8B85;">For a career in tech.</div>
+  </div>
+
+  <div class="scene s9">
+    <div class="s9-logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="s9-url"><span class="arrow">→</span>techturi.org</div>
+  </div>
+
+</div>
+</body>
+</html>

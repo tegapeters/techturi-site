@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Techturi Story Templates</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0; padding: 40px;
+    background: #1a1a1a;
+    display: flex; flex-direction: column; gap: 60px; align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .label-row {
+    width: 1080px;
+    color: #F5F4EE;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 14px 0;
+    border-bottom: 1px solid #333;
+  }
+  .label-row .accent { color: #D4FF3A; }
+
+  /* Full-size IG story */
+  .story {
+    width: 1080px;
+    height: 1920px;
+    background: #0A0A0B;
+    color: #F5F4EE;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 120px 90px;
+    box-sizing: border-box;
+  }
+
+  .story::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 90px 90px; opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .header {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px; font-weight: 500; letter-spacing: -0.01em;
+  }
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+
+  .story-num {
+    font-size: 18px; letter-spacing: 0.25em;
+    color: #4A4A45; text-transform: uppercase;
+  }
+
+  /* ============ Shared content layout ============ */
+  .body-zone {
+    position: absolute;
+    top: 50%; left: 90px; right: 90px;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-size: 22px; letter-spacing: 0.3em;
+    color: #D4FF3A; text-transform: uppercase;
+    margin-bottom: 40px;
+    display: flex; align-items: center; gap: 20px;
+  }
+  .eyebrow::before { content: ''; width: 50px; height: 3px; background: #D4FF3A; }
+
+  .title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300; line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+
+  .title em { font-style: italic; color: #D4FF3A; }
+
+  .subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px; color: #8B8B85;
+    line-height: 1.6; margin-top: 40px;
+  }
+
+  .placeholder-note {
+    position: absolute; bottom: 160px; left: 90px; right: 90px;
+    z-index: 2;
+    padding: 28px 32px;
+    border: 2px dashed #D4FF3A;
+    border-radius: 6px;
+    background: rgba(212,255,58,0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; color: #D4FF3A;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-align: center; line-height: 1.6;
+  }
+
+  /* ============ Template 1: New post up ============ */
+  .s1 .title { font-size: 180px; }
+
+  /* ============ Template 2: Poll ============ */
+  .s2 .title { font-size: 120px; }
+  .s2 .eyebrow { font-size: 24px; }
+
+  /* ============ Template 3: Save for later ============ */
+  .s3 .body-zone { text-align: center; }
+  .s3 .eyebrow { justify-content: center; }
+  .s3 .eyebrow::before { display: none; }
+  .s3-icon {
+    width: 220px; height: 220px;
+    margin: 0 auto 60px;
+    border: 5px solid #D4FF3A;
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 120px; color: #D4FF3A;
+  }
+  .s3 .title { font-size: 140px; }
+
+  /* ============ Template 4: Behind the scenes ============ */
+  .s4 { padding: 120px 90px 160px; }
+  .s4 .content {
+    position: absolute;
+    top: 240px; left: 90px; right: 90px; bottom: 220px;
+    z-index: 2;
+    display: flex; flex-direction: column;
+  }
+
+  .s4 .eyebrow { font-size: 24px; margin-bottom: 30px; }
+  .s4 .title { font-size: 100px; margin-bottom: 50px; }
+
+  .s4-screenshot-slot {
+    flex: 1;
+    border: 3px dashed #D4FF3A;
+    border-radius: 20px;
+    background: rgba(212,255,58,0.04);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 20px;
+    padding: 40px;
+  }
+
+  .s4-slot-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px; color: #D4FF3A;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    text-align: center;
+  }
+
+  .s4-slot-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px; color: #8B8B85;
+    text-align: center; line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* ============ Template 5: Link sticker ============ */
+  .s5 .body-zone { text-align: center; }
+  .s5 .eyebrow { justify-content: center; }
+  .s5 .eyebrow::before { display: none; }
+  .s5 .eyebrow::after {
+    content: '——';
+    letter-spacing: 0.05em;
+    color: #D4FF3A;
+  }
+  .s5 .eyebrow::before {
+    content: '——';
+    display: block;
+    letter-spacing: 0.05em;
+    color: #D4FF3A;
+    background: none; width: auto; height: auto;
+  }
+
+  .s5 .title { font-size: 160px; }
+  .s5 .subtitle { margin-bottom: 70px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+  .s5-url-card {
+    background: rgba(212,255,58,0.08);
+    border: 2px solid #D4FF3A;
+    border-radius: 12px;
+    padding: 36px 48px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 40px; color: #F5F4EE;
+    font-weight: 500;
+    display: inline-block;
+  }
+  .s5-url-card .arrow { color: #D4FF3A; margin-right: 16px; }
+</style>
+</head>
+<body>
+
+<div class="label-row">
+  <span class="accent">//</span> TEMPLATE 01 — NEW POST IS UP
+</div>
+<div class="story s1">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="story-num">STORY · 01</div>
+  </div>
+  <div class="body-zone">
+    <div class="eyebrow">New Post</div>
+    <div class="title">Fresh<br>on the <em>grid.</em></div>
+    <div class="subtitle">
+      Tap through to the feed.<br>
+      Save it before you scroll past.
+    </div>
+  </div>
+  <div class="placeholder-note">
+    ↓ ADD IG POST STICKER HERE ↓
+  </div>
+</div>
+
+<div class="label-row">
+  <span class="accent">//</span> TEMPLATE 02 — POLL / QUESTION
+</div>
+<div class="story s2">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="story-num">STORY · 02</div>
+  </div>
+  <div class="body-zone">
+    <div class="eyebrow">Quick Poll</div>
+    <div class="title">What's <em>harder</em><br>to learn?</div>
+  </div>
+  <div class="placeholder-note">
+    ↓ ADD IG POLL STICKER BELOW ↓<br>
+    OPTION A: [SQL]  ·  OPTION B: [PYTHON]
+  </div>
+</div>
+
+<div class="label-row">
+  <span class="accent">//</span> TEMPLATE 03 — SAVE FOR LATER
+</div>
+<div class="story s3">
+  <div class="header" style="justify-content: flex-end;">
+    <div class="story-num">STORY · 03</div>
+  </div>
+  <div class="body-zone">
+    <div class="s3-icon">↓</div>
+    <div class="title">Save it<br>for <em>later.</em></div>
+    <div class="subtitle">
+      Today's carousel works offline too.<br>
+      Tap the bookmark in the corner.
+    </div>
+  </div>
+</div>
+
+<div class="label-row">
+  <span class="accent">//</span> TEMPLATE 04 — BEHIND THE SCENES
+</div>
+<div class="story s4">
+  <div class="header">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+    <div class="story-num">STORY · 04</div>
+  </div>
+  <div class="content">
+    <div class="eyebrow">Behind the Scenes</div>
+    <div class="title"><em>Currently</em><br>working on...</div>
+    <div class="s4-screenshot-slot">
+      <div class="s4-slot-label">← DROP SCREENSHOT HERE →</div>
+      <div class="s4-slot-hint">
+        Dashboard · code · notebook · design file<br>
+        Show the work, not yourself.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="label-row">
+  <span class="accent">//</span> TEMPLATE 05 — LINK STICKER
+</div>
+<div class="story s5">
+  <div class="header" style="justify-content: center;">
+    <div class="logo"><span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span></div>
+  </div>
+  <div class="body-zone">
+    <div class="eyebrow">Direct Link</div>
+    <div class="title">Go <em>deeper.</em></div>
+    <div class="subtitle">
+      All the free resources,<br>curated and organized.
+    </div>
+    <div class="s5-url-card">
+      <span class="arrow">→</span>techturi.org
+    </div>
+  </div>
+  <div class="placeholder-note">
+    ↓ ADD IG LINK STICKER BELOW ↓<br>
+    POINTING TO TECHTURI.ORG
+  </div>
+</div>
+
+</body>
+</html>

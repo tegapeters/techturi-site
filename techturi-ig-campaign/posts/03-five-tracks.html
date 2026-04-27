@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Day 03 — Five Tracks</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 40px; background: #1a1a1a; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+
+  .post {
+    width: 1080px;
+    height: 1350px;
+    background: #0A0A0B;
+    color: #F5F4EE;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+    padding: 80px;
+    box-sizing: border-box;
+  }
+
+  .post::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(#1F1F22 1px, transparent 1px),
+      linear-gradient(90deg, #1F1F22 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+  }
+
+  .logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .logo .bracket, .logo .dot { color: #D4FF3A; }
+
+  .corner-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 26px;
+    letter-spacing: 0.25em;
+    color: #D4FF3A;
+    text-transform: uppercase;
+  }
+
+  .title-block {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 0.3em;
+    color: #D4FF3A;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 2px;
+    background: #D4FF3A;
+  }
+
+  .title {
+    font-family: 'Fraunces', serif;
+    font-size: 120px;
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: #F5F4EE;
+  }
+
+  .title em {
+    font-style: italic;
+    color: #D4FF3A;
+    font-weight: 300;
+  }
+
+  .family {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 24px;
+  }
+
+  .family-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1F1F22;
+  }
+
+  .family-name {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    font-style: italic;
+  }
+
+  .family-name .accent { color: #D4FF3A; }
+
+  .family-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #4A4A45;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  .track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .track-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 24px;
+    background: #131315;
+    border: 1px solid #1F1F22;
+    border-radius: 6px;
+  }
+
+  .track-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: #D4FF3A;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    width: 32px;
+  }
+
+  .track-name {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    flex: 1;
+    color: #F5F4EE;
+  }
+
+  .track-level {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 5px 12px;
+    border-radius: 2px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .level-entry { background: rgba(212,255,58,0.15); color: #D4FF3A; border: 1px solid rgba(212,255,58,0.3); }
+  .level-bridge { background: rgba(212,255,58,0.08); color: #A8CC2E; border: 1px solid rgba(212,255,58,0.2); }
+  .level-advanced { background: transparent; color: #8B8B85; border: 1px solid #4A4A45; }
+
+  .footer-cta {
+    position: absolute;
+    bottom: 80px;
+    left: 80px;
+    right: 80px;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .cta-text {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    font-style: italic;
+    color: #F5F4EE;
+  }
+
+  .cta-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: #D4FF3A;
+    font-weight: 500;
+  }
+
+  .cta-url .arrow { margin-right: 10px; }
+</style>
+</head>
+<body>
+<div class="post">
+  <div class="header">
+    <div class="logo">
+      <span class="bracket">[</span>techturi<span class="dot">.</span><span class="bracket">]</span>
+    </div>
+    <div class="corner-date">DAY 03 / 30</div>
+  </div>
+
+  <div class="title-block">
+    <div class="eyebrow">The Library</div>
+    <div class="title">8 tracks.<br><em>All free.</em></div>
+  </div>
+
+  <div class="family">
+    <div class="family-header">
+      <div class="family-name">Data<span class="accent">.</span></div>
+      <div class="family-meta">// FROM DASHBOARDS TO MODELS</div>
+    </div>
+    <div class="track-list">
+      <div class="track-row">
+        <div class="track-num">01</div>
+        <div class="track-name">Data Analytics</div>
+        <div class="track-level level-entry">Entry</div>
+      </div>
+      <div class="track-row">
+        <div class="track-num">02</div>
+        <div class="track-name">Business Analytics</div>
+        <div class="track-level level-bridge">Bridge</div>
+      </div>
+      <div class="track-row">
+        <div class="track-num">03</div>
+        <div class="track-name">Data Science</div>
+        <div class="track-level level-advanced">Advanced</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="family">
+    <div class="family-header">
+      <div class="family-name">Security<span class="accent">.</span></div>
+      <div class="family-meta">// FROM WIRES TO DEFENSE</div>
+    </div>
+    <div class="track-list">
+      <div class="track-row">
+        <div class="track-num">04</div>
+        <div class="track-name">Networking</div>
+        <div class="track-level level-entry">Foundation</div>
+      </div>
+      <div class="track-row">
+        <div class="track-num">05</div>
+        <div class="track-name">Cybersecurity</div>
+        <div class="track-level level-advanced">Applied</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="family">
+    <div class="family-header">
+      <div class="family-name">AI<span class="accent">.</span></div>
+      <div class="family-meta">// FROM CONCEPTS TO ARCHITECTURE</div>
+    </div>
+    <div class="track-list">
+      <div class="track-row">
+        <div class="track-num">06</div>
+        <div class="track-name">AI Foundations</div>
+        <div class="track-level level-entry">Entry</div>
+      </div>
+      <div class="track-row">
+        <div class="track-num">07</div>
+        <div class="track-name">Generative AI</div>
+        <div class="track-level level-bridge">Applied</div>
+      </div>
+      <div class="track-row">
+        <div class="track-num">08</div>
+        <div class="track-name">AI Architecture</div>
+        <div class="track-level level-advanced">Advanced</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-cta">
+    <div class="cta-text">Pick your path.</div>
+    <div class="cta-url"><span class="arrow">→</span>techturi.org/learn</div>
+  </div>
+</div>
+</body>
+</html>
