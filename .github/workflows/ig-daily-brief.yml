@@ -1,0 +1,46 @@
+name: IG Daily Brief
+
+on:
+  schedule:
+    - cron: '0 13 * * *'   # 8:00 AM CT (CDT = UTC-5)
+  workflow_dispatch:        # manual trigger from GitHub UI
+
+jobs:
+  send-brief:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Write config
+        working-directory: techturi-ig-campaign
+        env:
+          TO_EMAIL: ${{ secrets.IG_TO_EMAIL }}
+          GMAIL_ADDRESS: ${{ secrets.IG_GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.IG_GMAIL_APP_PASSWORD }}
+        run: |
+          python3 -c "
+          import json, os
+          config = {
+            'campaign_start_date': '2026-04-25',
+            'to_email': os.environ['TO_EMAIL'],
+            'gmail_address': os.environ['GMAIL_ADDRESS'],
+            'gmail_app_password': os.environ['GMAIL_APP_PASSWORD']
+          }
+          with open('campaign_config.json', 'w') as f:
+              json.dump(config, f)
+          print('Config written.')
+          "
+
+      - name: Send daily brief
+        working-directory: techturi-ig-campaign
+        run: python3 daily_brief.py
