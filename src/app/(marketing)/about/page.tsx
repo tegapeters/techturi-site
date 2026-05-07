@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About — Techturi",
-  description: "Senior engineer at Oracle, 11+ certifications, 6 years in cloud operations. Tega Eshareturi builds websites and teaches tech for free.",
+  description: "OCI Data Science Professional and AI automation lead at Oracle. 13 certifications across cloud, AI, and operations. Tega Eshareturi builds websites and teaches tech for free.",
 };
 
 const TIMELINE = [
@@ -37,6 +37,7 @@ const TIMELINE = [
 ];
 
 const CERTS = [
+  { name: "OCI Data Science Professional", year: "2026", tier: "pro" },
   { name: "OCI Generative AI Professional", year: "2025", tier: "pro" },
   { name: "OCI AI Foundations Associate", year: "2025", tier: "mid" },
   { name: "OCI Data Management Foundations", year: "2024", tier: "mid" },
@@ -51,7 +52,7 @@ const CERTS = [
 ];
 
 const STATS = [
-  { num: "11+", label: "Certifications" },
+  { num: "13", label: "Certifications" },
   { num: "6yr", label: "Oracle" },
   { num: "3", label: "Employers\nin aerospace,\ndefense & cloud" },
   { num: "MS", label: "Computer\nInformation\nSystems" },
@@ -76,7 +77,7 @@ export default function AboutPage() {
             </h1>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "start" }} className="hero-split">
               <p style={{ fontSize: 20, color: "var(--dim)", lineHeight: 1.7, margin: 0 }}>
-                Senior engineer at Oracle. Former Lockheed Martin. 11+ certifications across cloud, AI, and operations.
+                OCI Data Science Professional and AI automation lead at Oracle. Former Lockheed Martin. 13 certifications across cloud, AI, and operations.
                 I built Techturi because most of what I know came from free resources — and the right roadmap matters more than the right bootcamp.
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }} className="stats-mini">
@@ -168,7 +169,7 @@ export default function AboutPage() {
                 // CERTIFICATIONS
               </div>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.1em" }}>
-                11 TOTAL
+                13 TOTAL
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
