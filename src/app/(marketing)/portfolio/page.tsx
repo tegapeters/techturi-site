@@ -5,45 +5,34 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Portfolio — Techturi",
-  description: "Live client projects built by Techturi — housing authorities, event platforms, and more.",
+  description: "Python data pipelines, AI systems, and client builds by Tega Eshareturi — data engineer and AI workflow designer at Oracle.",
 };
 
 const PROJECTS = [
   {
     id: "01",
-    title: "A & J National Housing",
-    type: "Government Lodging Platform",
-    stack: ["Wix Studio", "Custom CSS", "SEO"],
-    desc: "Full website build for a government-contracted lodging provider. Custom Wix Studio build with booking flow, property listings, and compliance-ready layout.",
-    status: "LIVE",
-    year: "2025",
-    featured: true,
-    href: "https://www.ajnationalhousing.com",
-  },
-  {
-    id: "02",
-    title: "HEOP23",
-    type: "Event Platform",
-    stack: ["Custom HTML", "CSS", "JavaScript"],
-    desc: "Event registration and information platform for a university higher education opportunity program. Fast static build, mobile-first, zero hosting cost.",
-    status: "LIVE",
-    year: "2023",
-    featured: false,
-    href: "https://www.heop23.com",
-  },
-  {
-    id: "03",
-    title: "Snapi",
-    type: "iOS App — Collab with Lazaro Martull",
-    stack: ["Swift", "SwiftUI", "VNClassify", "CoreML"],
-    desc: "iOS photo cleaner with AI-powered duplicate detection and smart categorization. 3-tab UI — Home, Duplicates, Categories. CNN similarity matching + Apple's Vision framework. Currently in demo — built in collaboration with Lazaro Martull.",
-    status: "DEMO",
-    year: "2026",
+    title: "Oracle Uptime Reporting Platform",
+    type: "Python Data Engineering · Enterprise",
+    stack: ["Python", "SQL", "CLI/GUI", "ETL/ELT", "OCI", "Oracle Analytics", "Excel/XLSX"],
+    desc: "Re-architected monthly NetSuite CSI uptime reporting from a spreadsheet/macro process into a Python-owned CLI/GUI platform with readiness gates, CIM reconciliation, source validation, active/inactive audits, and executive-ready outputs. Reduced end-to-end reporting cycle from 3–5 days to ~3 hours.",
+    status: "DEPLOYED",
+    year: "2024",
     featured: true,
     href: null,
   },
   {
-    id: "04",
+    id: "02",
+    title: "Job Pal",
+    type: "AI Job Intelligence Engine",
+    stack: ["Python", "Claude API", "Supabase", "Streamlit", "GitHub Actions"],
+    desc: "End-to-end AI job search pipeline: parallel multi-source scraper across 5 boards, two-pass Claude scoring against resume, tailored cover letter generation, Gmail rejection scanning, and a personalization flywheel that learns from every apply/skip. Live in production with real user data.",
+    status: "LIVE",
+    year: "2025",
+    featured: false,
+    href: "https://jobpal.streamlit.app",
+  },
+  {
+    id: "03",
     title: "LeadOps CRM",
     type: "AI Lead Intelligence Engine",
     stack: ["Python", "Next.js", "Supabase"],
@@ -52,6 +41,28 @@ const PROJECTS = [
     year: "2025",
     featured: false,
     href: null,
+  },
+  {
+    id: "04",
+    title: "A & J National Housing",
+    type: "Government Lodging Platform",
+    stack: ["Wix Studio", "Custom CSS", "SEO"],
+    desc: "Full website build for a government-contracted lodging provider. Custom Wix Studio build with booking flow, property listings, and compliance-ready layout.",
+    status: "LIVE",
+    year: "2025",
+    featured: false,
+    href: "https://www.ajnationalhousing.com",
+  },
+  {
+    id: "05",
+    title: "HEOP23",
+    type: "Event Platform",
+    stack: ["Custom HTML", "CSS", "JavaScript"],
+    desc: "Event registration and information platform for a university higher education opportunity program. Fast static build, mobile-first, zero hosting cost.",
+    status: "LIVE",
+    year: "2023",
+    featured: false,
+    href: "https://www.heop23.com",
   },
 ];
 
@@ -73,14 +84,14 @@ export default function PortfolioPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
             <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              // Live projects · Real clients
+              // Data engineering · AI systems · Client builds
             </div>
             <h1 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: "clamp(56px,8vw,112px)", fontWeight: 400, lineHeight: 0.93, letterSpacing: "-0.04em", marginBottom: 32 }}>
               The<br />
               <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>work.</em>
             </h1>
             <p style={{ fontSize: 20, color: "var(--dim)", maxWidth: 560, lineHeight: 1.6 }}>
-              Client sites, internal tools, and personal projects. All built and shipped — not concept mockups.
+              Python data pipelines, AI workflow systems, and client builds. All shipped and in production — not concept mockups.
             </p>
           </div>
         </section>

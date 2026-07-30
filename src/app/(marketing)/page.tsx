@@ -264,10 +264,10 @@ export default function HomePage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }} className="stats-grid">
               {[
-                { num: "11+", label: "Certifications\nHeld" },
-                { num: "5+",  label: "Live Client\nProjects" },
+                { num: "12", label: "Certifications\nHeld" },
+                { num: "7+",  label: "Projects\nShipped" },
                 { num: "6yr", label: "Senior Eng\nat Oracle", accent: true },
-                { num: "$0",  label: "Cost to\nLearn Here" },
+                { num: "MS",  label: "Data Science\nConcentration" },
               ].map((s) => (
                 <div key={s.label} style={{ borderLeft: "2px solid var(--accent)", paddingLeft: 20 }}>
                   <div style={{
@@ -572,26 +572,30 @@ export default function HomePage() {
                 Recent <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>work</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // LIVE PROJECTS
+                // DATA ENGINEERING · AI SYSTEMS · CLIENT BUILDS
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20 }} className="portfolio-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }} className="portfolio-grid">
               {[
-                { title: "A & J National Housing", type: "GOVERNMENT LODGING · WIX STUDIO", tall: false, href: "https://www.ajnationalhousing.com" },
-                { title: "HEOP23", type: "EVENT PLATFORM", tall: true, href: "https://www.heop23.com" },
-              ].map((w) => (
-                <a key={w.title} href={w.href} target="_blank" rel="noopener noreferrer" style={{
+                { title: "Oracle Uptime Platform", type: "PYTHON DATA ENGINEERING · ENTERPRISE", href: null },
+                { title: "Job Pal", type: "AI JOB INTELLIGENCE ENGINE", href: "https://jobpal.streamlit.app" },
+                { title: "A & J National Housing", type: "GOVERNMENT LODGING · WIX STUDIO", href: "https://www.ajnationalhousing.com" },
+              ].map((w) => {
+                const Tag = w.href ? "a" : "div";
+                const tagProps = w.href ? { href: w.href, target: "_blank", rel: "noopener noreferrer" } : {};
+                return (
+                <Tag key={w.title} {...(tagProps as object)} style={{
                   background: "var(--surface)",
                   border: "1px solid var(--border)",
                   borderRadius: 8,
                   overflow: "hidden",
-                  aspectRatio: w.tall ? "1/1" : "16/10",
-                  cursor: "pointer",
+                  aspectRatio: "16/10",
+                  cursor: w.href ? "pointer" : "default",
                   transition: "border-color 0.3s",
                   textDecoration: "none",
                   display: "block",
-                }} className="portfolio-card">
+                }} className={w.href ? "portfolio-card" : ""}>
                   <div style={{
                     width: "100%",
                     height: "70%",
@@ -604,10 +608,11 @@ export default function HomePage() {
                       <h4 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 20, fontWeight: 500, marginBottom: 4, color: "var(--foreground)" }}>{w.title}</h4>
                       <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dim)", letterSpacing: "0.1em", textTransform: "uppercase" }}>{w.type}</div>
                     </div>
-                    <span style={{ fontFamily: "var(--font-jetbrains),monospace", color: "var(--dim)", fontSize: 20 }}>↗</span>
+                    {w.href && <span style={{ fontFamily: "var(--font-jetbrains),monospace", color: "var(--dim)", fontSize: 20 }}>↗</span>}
                   </div>
-                </a>
-              ))}
+                </Tag>
+                );
+              })}
             </div>
           </div>
         </section>
