@@ -153,7 +153,7 @@ export default function HomePage() {
               gap: 12,
             }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              Houston, TX — Est. 2024
+              Houston, TX — Est. 2020
             </div>
 
             <h1 style={{
