@@ -561,6 +561,23 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
+
+            <Link href="/questionnaire" className="questionnaire-banner" style={{ marginTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 24, flexWrap: "wrap", padding: "28px 40px", background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, textDecoration: "none" }}>
+              <div>
+                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 8 }}>
+                  New client? Start here
+                </div>
+                <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 26, color: "var(--foreground)" }}>
+                  Fill out the website questionnaire
+                </div>
+                <div style={{ fontSize: 14, color: "var(--dim)", marginTop: 6 }}>
+                  Your business, brand, pages and features in one place, so we can plan your site before we meet.
+                </div>
+              </div>
+              <span style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, whiteSpace: "nowrap" }}>
+                Start questionnaire →
+              </span>
+            </Link>
           </div>
         </section>
 
@@ -632,6 +649,9 @@ export default function HomePage() {
               </Link>
               <Link href="/book" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
                 Book a free 30-min call
+              </Link>
+              <Link href="/questionnaire" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
+                Start a website project
               </Link>
             </div>
           </div>

@@ -297,6 +297,9 @@ export default function ServicesPage() {
                 <Link href="/intake" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, textDecoration: "none" }}>
                   Request a quote →
                 </Link>
+                <Link href="/questionnaire" style={{ display: "block", marginTop: 16, fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", textDecoration: "none" }}>
+                  Ready to plan? <span style={{ color: "var(--accent)" }}>Fill out the full website questionnaire →</span>
+                </Link>
               </div>
 
               {/* What to expect */}
@@ -391,6 +394,9 @@ export default function ServicesPage() {
               </Link>
               <Link href="/intake" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
                 Start intake form →
+              </Link>
+              <Link href="/questionnaire" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "transparent", color: "var(--foreground)", border: "1px solid var(--dimmer)", textDecoration: "none" }}>
+                Website questionnaire →
               </Link>
             </div>
           </div>
