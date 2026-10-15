@@ -108,7 +108,7 @@ export const QUIZZES: Record<string, TrackQuiz> = {
       },
       {
         q: "What is the hireable checkpoint for the Data Science track?",
-        options: ["IBM Data Science cert", "AWS ML Specialty", "TensorFlow Developer cert + 3 projects", "Kaggle Master rank"],
+        options: ["IBM Data Science cert", "AWS ML Engineer Associate", "TensorFlow Developer cert + 3 projects", "Kaggle Master rank"],
         answer: 2,
       },
       {
@@ -290,6 +290,41 @@ export const QUIZZES: Record<string, TrackQuiz> = {
         q: "What does ETL stand for?",
         options: ["Extract, Transform, Load", "Execute, Test, Launch", "Export, Transfer, Log", "Evaluate, Train, Learn"],
         answer: 0,
+      },
+    ],
+  },
+
+  "project-management": {
+    id: "project-management",
+    track: "Project Management",
+    badge: "PM",
+    color: "#F77C6A",
+    label: "Program Manager",
+    questions: [
+      {
+        q: "Which PMI certification requires no prior project experience to sit for?",
+        options: ["PMP", "CAPM", "PMI-ACP", "PfMP"],
+        answer: 1,
+      },
+      {
+        q: "What is PRINCE2 primarily known for?",
+        options: ["A US-only certification", "A process-driven methodology used widely in the UK/EU", "An agile-only framework", "A software testing standard"],
+        answer: 1,
+      },
+      {
+        q: "What does PMI-ACP certify a project manager in?",
+        options: ["Cloud architecture", "Agile practices across Scrum, Kanban, Lean, and XP", "Financial auditing", "Six Sigma process control"],
+        answer: 1,
+      },
+      {
+        q: "What does an AI Program Manager (CAIPM) add on top of standard PM skills?",
+        options: ["Nothing — it's identical to PMP", "Model lifecycle, data governance, and AI risk management across data science and engineering teams", "Only coding skills", "Only budget forecasting"],
+        answer: 1,
+      },
+      {
+        q: "What is the hireable checkpoint for the Project Management track?",
+        options: ["PRINCE2 Practitioner only", "CAIPM only", "CAPM + a coordinator-level role", "PMI-ACP alone"],
+        answer: 2,
       },
     ],
   },

@@ -87,7 +87,7 @@ export default function GenerativeAIPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "60px 32px" }}>
             <div style={{ background: "linear-gradient(135deg, #1A1F0A 0%, #131315 100%)", border: "1px solid var(--accent-dim)", borderRadius: 8, padding: "40px 48px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "start" }} className="mcp-card">
               <div>
-                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>◆ NEW IN 2025 — CRITICAL SKILL</div>
+                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>◆ CORE SKILL — EVERY GENAI ROLE NOW SCREENS FOR THIS</div>
                 <h2 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 36, fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1, marginBottom: 16 }}>
                   MCP Servers &<br />
                   <em style={{ fontStyle: "italic", color: "var(--accent)", fontWeight: 300 }}>AI Agents.</em>
@@ -154,7 +154,7 @@ export default function GenerativeAIPage() {
         {/* ── SALARY ── */}
         <section style={{ padding: "80px 0 120px", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
-            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2025–2026</div>
+            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2026–2027</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }} className="salary-grid">
               {SALARY.map((s) => (
                 <div key={s.title} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px" }}>

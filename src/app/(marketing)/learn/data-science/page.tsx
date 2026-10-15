@@ -14,7 +14,7 @@ const CERT_STACK = [
   { order: 2, name: "IBM Data Science Professional Certificate", provider: "Coursera / IBM", cost: "Free (audit)", duration: "3–5 months", hireable: false, note: "10-course series covering Python, Jupyter, Pandas, Matplotlib, ML with scikit-learn. One of the best free data science programs available." },
   { order: 3, name: "Statistics for Data Science", provider: "Khan Academy / StatQuest (Free)", cost: "Free", duration: "4–6 weeks", hireable: false, note: "Non-negotiable. Probability, hypothesis testing, distributions, regression. StatQuest on YouTube makes it actually understandable." },
   { order: 4, name: "TensorFlow Developer Certificate", provider: "Google / Coursera", cost: "Free (study) · $100 exam", duration: "3–5 months", hireable: true, note: "Hireable checkpoint. Validates ML engineering skills. Deep learning, CNNs, NLP, time series. Gets you into ML engineer and data scientist roles." },
-  { order: 5, name: "AWS Certified Machine Learning Specialty", provider: "AWS Skill Builder", cost: "Free (study) · $300 exam", duration: "3–5 months", hireable: false, note: "Senior-level ML cert. Model training, tuning, deployment on AWS. Opens senior DS and ML architect roles." },
+  { order: 5, name: "AWS Certified Machine Learning Engineer – Associate", provider: "AWS Skill Builder", cost: "Free (study) · $150 exam", duration: "2–4 months", hireable: false, note: "Replaced the retired ML Specialty exam. Covers the full ML pipeline on AWS — data prep, model training, deployment, monitoring. Opens senior DS and ML engineer roles." },
   { order: 6, name: "3 End-to-End Projects", provider: "Kaggle / GitHub", cost: "Free", duration: "6–8 weeks", hireable: false, note: "Data → model → deployment → writeup. One classification, one regression, one NLP or computer vision. Public on GitHub with README." },
 ];
 
@@ -23,7 +23,7 @@ const RESOURCES = [
   { name: "StatQuest with Josh Starmer (YouTube)", url: "https://youtube.com/@statquest", source: "YouTube" },
   { name: "Kaggle Learn — ML Courses (Free)", url: "https://kaggle.com/learn", source: "Kaggle" },
   { name: "Fast.ai — Practical Deep Learning", url: "https://fast.ai", source: "Fast.ai" },
-  { name: "AWS Skill Builder — ML Specialty", url: "https://skillbuilder.aws", source: "AWS" },
+  { name: "AWS Skill Builder — ML Engineer Associate", url: "https://skillbuilder.aws", source: "AWS" },
 ];
 
 const SALARY = [
@@ -87,7 +87,7 @@ export default function DataSciencePage() {
 
         <section style={{ padding: "80px 0 120px", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
-            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2025–2026</div>
+            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2026–2027</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }} className="salary-grid">
               {SALARY.map((s) => (
                 <div key={s.title} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px" }}>

@@ -33,7 +33,7 @@ const ROADMAPS = [
         title: "Data Science",
         href: "/learn/data-science",
         duration: "~9 months",
-        certs: ["IBM Data Science Cert", "Statistics (StatQuest)", "TensorFlow Developer", "AWS ML Specialty"],
+        certs: ["IBM Data Science Cert", "Statistics (StatQuest)", "TensorFlow Developer", "AWS ML Engineer Associate"],
         hireable: "TensorFlow cert + 3 projects",
         salary: "$95K – $130K",
       },
@@ -91,6 +91,20 @@ const ROADMAPS = [
       },
     ],
   },
+  {
+    family: "Management",
+    color: "#F77C6A",
+    tracks: [
+      {
+        title: "Project Management",
+        href: "/learn/project-management",
+        duration: "~9 months",
+        certs: ["CAPM", "PMP", "PRINCE2 Practitioner", "PMI-ACP", "CAIPM (AI Program Manager)"],
+        hireable: "CAPM + coordinator role",
+        salary: "$65K – $150K+",
+      },
+    ],
+  },
 ];
 
 const TOOLS = [
@@ -98,7 +112,7 @@ const TOOLS = [
   { name: "Cursor", tag: "AI Code Editor", desc: "VS Code with GPT-4 built in. Autocompletes functions, explains code inline.", url: "https://cursor.sh", badge: null },
   { name: "Gemini CLI", tag: "Google AI Terminal", desc: "AI assistant in your terminal. Free with a Google account.", url: "https://gemini.google.com", badge: "FREE" },
   { name: "OpenAI Codex / ChatGPT", tag: "General AI", desc: "Explain code, write boilerplate, debug errors, draft docs.", url: "https://chatgpt.com", badge: null },
-  { name: "MCP Servers", tag: "Agent Protocol", desc: "How AI agents connect to your tools, DBs, and APIs. Covered in GenAI track.", url: "https://modelcontextprotocol.io", badge: "NEW 2025" },
+  { name: "MCP Servers", tag: "Agent Protocol", desc: "How AI agents connect to your tools, DBs, and APIs. Covered in GenAI track.", url: "https://modelcontextprotocol.io", badge: "CORE STANDARD" },
   { name: "Vercel v0", tag: "AI UI Generator", desc: "Describe a UI, get production-ready React code in minutes.", url: "https://v0.dev", badge: null },
 ];
 
@@ -116,7 +130,7 @@ export default function RoadmapsPage() {
             </Link>
             <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              All 8 tracks · 3 families · Free
+              All 9 tracks · 4 families · Free
             </div>
             <h1 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: "clamp(48px,7vw,96px)", fontWeight: 400, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 24 }}>
               Career<br />
@@ -195,13 +209,13 @@ export default function RoadmapsPage() {
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>// WHAT CLOSES THE GAP</div>
             </div>
             <p style={{ fontSize: 15, color: "var(--dim)", maxWidth: 600, lineHeight: 1.7, marginBottom: 48 }}>
-              Certs teach the theory. These tools are what the industry is actually using day-to-day in 2025 to build faster, debug smarter, and ship more.
+              Certs teach the theory. These tools are what the industry is actually using day-to-day in 2026 to build faster, debug smarter, and ship more.
             </p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }} className="tools-grid">
               {TOOLS.map((t) => (
                 <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card">
                   {t.badge && (
-                    <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "FREE" || t.badge === "NEW 2025" ? "transparent" : "var(--accent)", color: t.badge === "FREE" || t.badge === "NEW 2025" ? "var(--accent)" : "var(--background)", border: t.badge === "FREE" || t.badge === "NEW 2025" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>
+                    <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "FREE" || t.badge === "CORE STANDARD" ? "transparent" : "var(--accent)", color: t.badge === "FREE" || t.badge === "CORE STANDARD" ? "var(--accent)" : "var(--background)", border: t.badge === "FREE" || t.badge === "CORE STANDARD" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>
                       {t.badge}
                     </div>
                   )}

@@ -86,7 +86,7 @@ export default function BusinessAnalyticsPage() {
 
         <section style={{ padding: "80px 0 120px", borderTop: "1px solid var(--border)" }}>
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
-            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2025–2026</div>
+            <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: 48 }}>// SALARY RANGES · 2026–2027</div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }} className="salary-grid">
               {SALARY.map((s) => (
                 <div key={s.title} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px" }}>

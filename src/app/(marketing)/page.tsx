@@ -115,12 +115,31 @@ const TRACKS = [
     ],
     progression: ["◦ START HERE", "◦ BRIDGE", "◦ DEEP END →"],
   },
+  {
+    family: "Management",
+    meta: "// FROM COORDINATOR TO PROGRAM LEAD",
+    cols: 1,
+    tracks: [
+      {
+        icon: "{ 09 } → DELIVERY",
+        level: "Bridge",
+        levelClass: "bridge",
+        title: "Project Management",
+        desc: "Scope, schedule, risk, and delivery. CAPM through PMP and PRINCE2, plus the emerging AI Program Manager (CAIPM) credential for teams shipping ML/GenAI products.",
+        courses: 16,
+        projects: 2,
+        duration: "~9mo",
+        href: "/learn/project-management",
+      },
+    ],
+    progression: ["◦ BRIDGE →"],
+  },
 ];
 
 const MARQUEE_ITEMS = [
   "DATA ANALYTICS", "BUSINESS ANALYTICS", "DATA SCIENCE",
   "NETWORKING", "CYBERSECURITY", "AI FOUNDATIONS", "GENERATIVE AI",
-  "DATA ARCHITECTURE", "WEB DEVELOPMENT", "AI AUTOMATION",
+  "DATA ARCHITECTURE", "PROJECT MANAGEMENT", "WEB DEVELOPMENT", "AI AUTOMATION",
 ];
 
 const levelStyle = (cls: string) => {
@@ -328,7 +347,7 @@ export default function HomePage() {
                 The <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Library</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // 08 TRACKS · 03 FAMILIES · FREE
+                // 09 TRACKS · 04 FAMILIES · FREE
               </div>
             </div>
 

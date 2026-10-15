@@ -77,7 +77,7 @@ const FAMILIES = [
           { step: 1, cert: "IBM Data Science Professional", provider: "Coursera", cost: "Free (audit)", type: "Foundation" },
           { step: 2, cert: "Python for Everybody", provider: "U of Michigan / Coursera", cost: "Free (audit)", type: "Skill" },
           { step: 3, cert: "TensorFlow Developer Certificate", provider: "Google", cost: "$100", type: "ML" },
-          { step: 4, cert: "AWS Certified ML Specialty", provider: "AWS", cost: "$300", type: "Cloud ML" },
+          { step: 4, cert: "AWS ML Engineer Associate", provider: "AWS", cost: "$150", type: "Cloud ML" },
           { step: 5, cert: "Google Professional Data Engineer", provider: "Google Cloud", cost: "$200", type: "Expert" },
         ],
         hireableAt: "Step 3 + 2 projects",
@@ -214,6 +214,36 @@ const FAMILIES = [
       },
     ],
   },
+  {
+    id: "management",
+    name: "Management",
+    meta: "// FROM COORDINATOR TO PROGRAM LEAD",
+    tracks: [
+      {
+        num: "09",
+        icon: "{ 09 } → DELIVERY",
+        level: "Bridge",
+        levelClass: "bridge",
+        title: "Project Management",
+        desc: "Scope, schedule, risk, and delivery — the skill set every engineering and data team runs on. CAPM through PMP and PRINCE2, plus the emerging AI Program Manager credential for teams shipping ML/GenAI products.",
+        salaryRange: "$65K – $150K+",
+        salaryNote: "Entry → Senior · PMI, Glassdoor, Payscale",
+        topCert: "PMP",
+        topCertCost: "$405–$675",
+        href: "/learn/project-management",
+        stack: [
+          { step: 1, cert: "CAPM (Certified Associate in PM)", provider: "PMI", cost: "Free (study) · $290 exam", type: "Foundation" },
+          { step: 2, cert: "PMP (Project Management Professional)", provider: "PMI", cost: "$405–$675", type: "Core" },
+          { step: 3, cert: "PRINCE2 Foundation + Practitioner", provider: "PeopleCert / Axelos", cost: "~$695", type: "Global" },
+          { step: 4, cert: "PMI-ACP (Agile Certified Practitioner)", provider: "PMI", cost: "$435–$495", type: "Agile" },
+          { step: 5, cert: "CAIPM (AI Program Manager)", provider: "GSDC", cost: "~$400", type: "Expert" },
+        ],
+        hireableAt: "Step 1 (CAPM) + coordinator role",
+        duration: "~9mo",
+        courses: 16,
+      },
+    ],
+  },
 ];
 
 const levelStyle = (cls: string) => {
@@ -240,14 +270,14 @@ export default function LearnPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
             <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              // 08 TRACKS · 03 FAMILIES · FREE
+              // 09 TRACKS · 04 FAMILIES · FREE
             </div>
             <h1 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: "clamp(48px,7vw,96px)", fontWeight: 400, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 32 }}>
               The cert stack that<br />
               <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>actually gets you hired.</em>
             </h1>
             <p style={{ fontSize: 20, color: "var(--dim)", maxWidth: 620, lineHeight: 1.5, marginBottom: 40 }}>
-              No single cert gets you a job in 2025. Every track shows you the full sequence — in order — with honest salary ranges from multiple sources and the exact point you become hireable.
+              No single cert gets you a job in 2026. Every track shows you the full sequence — in order — with honest salary ranges from multiple sources and the exact point you become hireable.
             </p>
 
             {/* Disclaimer strip */}
@@ -393,7 +423,7 @@ export default function LearnPage() {
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>// WHAT CLOSES THE GAP</div>
             </div>
             <p style={{ fontSize: 16, color: "var(--dim)", maxWidth: 640, lineHeight: 1.7, marginBottom: 56 }}>
-              Certs teach the theory. These tools are what the industry is actually using day-to-day in 2025 to build faster, debug smarter, and ship more. Learning any of these alongside your cert track will make you significantly more hireable.
+              Certs teach the theory. These tools are what the industry is actually using day-to-day in 2026 to build faster, debug smarter, and ship more. Learning any of these alongside your cert track will make you significantly more hireable.
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid-learn">
@@ -414,7 +444,7 @@ export default function LearnPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="tools-grid-learn">
               {[
                 { name: "OpenAI Codex / ChatGPT", tag: "GENERAL AI ASSISTANT", desc: "Explain code, write boilerplate, debug errors, draft documentation. The most widely used AI tool in tech today.", url: "https://chatgpt.com", badge: null },
-                { name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to tools, databases, and APIs. Covered in the Generative AI track.", url: "https://modelcontextprotocol.io", badge: "NEW 2025" },
+                { name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to tools, databases, and APIs. Covered in the Generative AI track.", url: "https://modelcontextprotocol.io", badge: "CORE STANDARD" },
                 { name: "Vercel v0", tag: "AI UI GENERATOR", desc: "Describe a UI, get production-ready React code. Goes from idea to deployed component in minutes.", url: "https://v0.dev", badge: null },
               ].map((t) => (
                 <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "28px 24px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card-learn">

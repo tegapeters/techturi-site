@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/learn/ai-foundations",
     "/learn/generative-ai",
     "/learn/data-architecture",
+    "/learn/project-management",
   ];
 
   return routes.map((route) => ({
