@@ -430,7 +430,7 @@ export default function HomePage() {
               </div>
             </div>
             <p style={{ fontSize: 16, color: "var(--dim)", maxWidth: 620, lineHeight: 1.7, marginBottom: 60 }}>
-              Certs teach the theory. These tools close the gap between knowing it and shipping it. Every serious tech professional in 2025 is using at least one of these daily.
+              Certs teach the theory. These tools close the gap between knowing it and shipping it. Every serious tech professional in 2026 is using at least one of these daily.
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 20 }} className="tools-grid">
@@ -452,11 +452,11 @@ export default function HomePage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }} className="tools-grid">
               {[
                 { icon: "[ ✦ ]", name: "OpenAI Codex / ChatGPT", tag: "GENERAL AI ASSISTANT", desc: "Explain code, write boilerplate, debug errors, draft documentation. The most widely used AI tool in tech today.", url: "https://chatgpt.com", badge: null },
-                { icon: "[ ⟡ ]", name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to your tools, databases, and APIs. The backbone of modern agentic AI. Covered in the GenAI track.", url: "https://modelcontextprotocol.io", badge: "NEW 2025" },
+                { icon: "[ ⟡ ]", name: "MCP Servers", tag: "AI AGENT PROTOCOL", desc: "Model Context Protocol — how AI agents connect to your tools, databases, and APIs. The backbone of modern agentic AI. Covered in the GenAI track.", url: "https://modelcontextprotocol.io", badge: "CORE STANDARD" },
                 { icon: "[ ▲ ]", name: "Vercel v0", tag: "AI UI GENERATOR", desc: "Describe a UI, get production-ready React code. Built on shadcn/ui. Goes from idea to deployed component in minutes.", url: "https://v0.dev", badge: null },
               ].map((t) => (
                 <a key={t.name} href={t.url} target="_blank" rel="noopener noreferrer" style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "32px 28px", textDecoration: "none", display: "block", position: "relative", transition: "border-color 0.2s, transform 0.2s" }} className="tool-card">
-                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "NEW 2025" ? "transparent" : "var(--accent)", color: t.badge === "NEW 2025" ? "var(--accent)" : "var(--background)", border: t.badge === "NEW 2025" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
+                  {t.badge && <div style={{ position: "absolute", top: -11, right: 16, background: t.badge === "CORE STANDARD" ? "transparent" : "var(--accent)", color: t.badge === "CORE STANDARD" ? "var(--accent)" : "var(--background)", border: t.badge === "CORE STANDARD" ? "1px solid var(--accent)" : "none", fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, fontWeight: 700, padding: "3px 10px", borderRadius: 2, letterSpacing: "0.12em" }}>{t.badge}</div>}
                   <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 14, color: "var(--accent)", marginBottom: 16 }}>{t.icon}</div>
                   <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 22, fontWeight: 500, color: "var(--foreground)", marginBottom: 4 }}>{t.name}</div>
                   <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 10, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 16 }}>{t.tag}</div>
