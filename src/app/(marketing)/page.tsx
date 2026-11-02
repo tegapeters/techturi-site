@@ -475,13 +475,13 @@ export default function HomePage() {
                 The <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>Studio</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // 02 PATHS · 5YR MAINTENANCE
+                // 03 PATHS · AI, WIX, OR CUSTOM
               </div>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="services-grid">
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 24 }} className="services-grid">
 
-              {/* Wix Subscriptions */}
+              {/* Enterprise AI Systems */}
               <div style={{
                 background: "linear-gradient(135deg, #1A1F0A 0%, #131315 100%)",
                 border: "1px solid var(--accent-dim)",
@@ -489,7 +489,52 @@ export default function HomePage() {
                 padding: "48px 40px",
               }}>
                 <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 24 }}>
-                  ◆ SUBSCRIPTION · MOST POPULAR
+                  ◆ FLAGSHIP · ENTERPRISE
+                </div>
+                <h3 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 36, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 12, color: "var(--foreground)" }}>
+                  Enterprise AI Systems
+                </h3>
+                <p style={{ color: "var(--dim)", fontSize: 15, marginBottom: 32 }}>
+                  Claude-powered assistants scoped to your workflow. Flagship build: Eshie, live in daily use at a law firm.
+                </p>
+
+                <div style={{ marginBottom: 32, padding: 24, background: "var(--background)", borderRadius: 4, border: "1px solid var(--border)" }}>
+                  <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dim)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 8 }}>
+                    Starting at
+                  </div>
+                  <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 44, fontWeight: 400, letterSpacing: "-0.02em", color: "var(--foreground)" }}>
+                    $8,500<span style={{ fontSize: 14, color: "var(--dim)", fontFamily: "var(--font-jetbrains),monospace", marginLeft: 8 }}>quote-based</span>
+                  </div>
+                </div>
+
+                <ul style={{ listStyle: "none", marginBottom: 32 }}>
+                  {[
+                    "Built on your existing systems",
+                    "Live data via webhook/API ingestion",
+                    "Web app + Teams or Slack bot",
+                    "Secure deployment, you own the code",
+                  ].map((f) => (
+                    <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: "var(--dim)", display: "flex", alignItems: "center", gap: 12 }}>
+                      <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace" }}>→</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href="/book" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, textDecoration: "none" }}>
+                  Book an AI systems call →
+                </Link>
+              </div>
+
+              {/* Wix Subscriptions */}
+              <div style={{
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
+                borderRadius: 8,
+                padding: "48px 40px",
+              }}>
+                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--dimmer)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 24 }}>
+                  ◇ SUBSCRIPTION
                 </div>
                 <h3 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 36, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 12, color: "var(--foreground)" }}>
                   Wix Studio Sites
@@ -608,14 +653,14 @@ export default function HomePage() {
                 Recent <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>work</em>
               </h2>
               <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
-                // DATA ENGINEERING · AI SYSTEMS · CLIENT BUILDS
+                // ENTERPRISE AI SYSTEMS · DATA ENGINEERING · CLIENT BUILDS
               </div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 20 }} className="portfolio-grid">
               {[
-                { title: "Oracle Uptime Platform", type: "PYTHON DATA ENGINEERING · ENTERPRISE", href: null },
-                { title: "Job Pal", type: "AI JOB INTELLIGENCE ENGINE", href: "https://jobpal.streamlit.app" },
+                { title: "Eshie", type: "ENTERPRISE AI SYSTEMS · LEGAL OPS", href: null },
+                { title: "Job Pal", type: "AI JOB INTELLIGENCE ENGINE", href: null },
                 { title: "A & J National Housing", type: "GOVERNMENT LODGING · WIX STUDIO", href: "https://www.ajnationalhousing.com" },
               ].map((w) => {
                 const Tag = w.href ? "a" : "div";
