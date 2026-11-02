@@ -5,8 +5,24 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Custom websites built to last. Annual Wix plans or permanent HTML/React builds — hosting, maintenance, and support under the Techturi umbrella.",
+  description: "Enterprise AI systems for companies, plus custom websites built to last — annual Wix plans, permanent HTML/React builds, and Claude-powered assistants under the Techturi umbrella.",
 };
+
+const AI_FEATURES = [
+  "Claude-powered assistant, scoped to your workflow",
+  "Built on your existing systems — case management, CRM, inbox, whatever you run",
+  "Live data via webhook/API ingestion, not manual lookups",
+  "Web app + Teams or Slack bot",
+  "Secure deployment, you own the code",
+  "Flagship build: Eshie, live in daily use at a law firm ✦",
+];
+
+const AI_STEPS = [
+  { step: "01", title: "Discovery call", desc: "Map your workflow, data sources, and where staff lose the most time. Free, no obligation." },
+  { step: "02", title: "Scoped proposal", desc: "Fixed price, clear integration list, and what the assistant will and won't do." },
+  { step: "03", title: "Build & review", desc: "Weekly demos against real (or synthetic) data. You see it working before launch." },
+  { step: "04", title: "Launch + support", desc: "Deployed, monitored, and maintained. One point of contact for changes." },
+];
 
 const WIX_TIERS = [
   {
@@ -148,15 +164,71 @@ export default function ServicesPage() {
           <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
             <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 32, display: "flex", alignItems: "center", gap: 12 }}>
               <span style={{ width: 24, height: 1, background: "var(--accent)", display: "inline-block" }} />
-              // 02 PATHS · 5YR MAINTENANCE
+              // 03 PATHS · AI, WIX, OR CUSTOM
             </div>
             <h1 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: "clamp(48px,7vw,96px)", fontWeight: 400, lineHeight: 0.95, letterSpacing: "-0.04em", marginBottom: 32 }}>
-              Websites built<br />
-              <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>to outlast trends.</em>
+              Built to outlast<br />
+              <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>trends — and headcount.</em>
             </h1>
             <p style={{ fontSize: 20, color: "var(--dim)", maxWidth: 580, lineHeight: 1.5 }}>
-              Two ways to work with Techturi. An annual contract under the Techturi umbrella — hosting, maintenance, and support included — or a permanent custom build you own outright. Both backed by five years of coverage.
+              Three ways to work with Techturi. A Claude-powered AI system for your business, an annual website contract with hosting and maintenance included, or a permanent custom build you own outright.
             </p>
+          </div>
+        </section>
+
+        {/* ── ENTERPRISE AI SYSTEMS ── */}
+        <section style={{ padding: "80px 0 120px", borderTop: "1px solid var(--border)" }}>
+          <div style={{ maxWidth: 1400, margin: "0 auto", padding: "0 32px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 60, flexWrap: "wrap", gap: 24 }}>
+              <h2 style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 48, fontWeight: 400, lineHeight: 1, letterSpacing: "-0.03em" }}>
+                Enterprise <em style={{ fontStyle: "italic", fontWeight: 300, color: "var(--accent)" }}>AI Systems</em>
+              </h2>
+              <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", letterSpacing: "0.1em" }}>
+                // BUILT ON CLAUDE · PRODUCTION-GRADE
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }} className="custom-grid">
+              {/* Price box */}
+              <div style={{ background: "linear-gradient(135deg, #1A1F0A 0%, #131315 100%)", border: "1px solid var(--accent-dim)", borderRadius: 8, padding: "48px 40px" }}>
+                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 11, color: "var(--accent)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>
+                  Starting at
+                </div>
+                <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 72, fontWeight: 400, letterSpacing: "-0.04em", lineHeight: 1, marginBottom: 8, color: "var(--foreground)" }}>
+                  $8,500
+                </div>
+                <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, color: "var(--dim)", marginBottom: 40 }}>
+                  Quote-based. Scoped to your workflow and data sources.
+                </div>
+                <ul style={{ listStyle: "none", marginBottom: 40 }}>
+                  {AI_FEATURES.map((f) => (
+                    <li key={f} style={{ padding: "10px 0", borderBottom: "1px solid var(--border)", fontSize: 14, color: f.startsWith("Flagship") ? "var(--foreground)" : "var(--dim)", display: "flex", alignItems: "center", gap: 12, fontWeight: f.startsWith("Flagship") ? 500 : 400 }}>
+                      <span style={{ color: "var(--accent)", fontFamily: "var(--font-jetbrains),monospace" }}>→</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/book" style={{ display: "inline-block", fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, padding: "14px 28px", borderRadius: 4, background: "var(--accent)", color: "var(--background)", fontWeight: 600, textDecoration: "none" }}>
+                  Book an AI systems call →
+                </Link>
+                <Link href="/portfolio" style={{ display: "block", marginTop: 16, fontFamily: "var(--font-jetbrains),monospace", fontSize: 12, color: "var(--dim)", textDecoration: "none" }}>
+                  See it in production: <span style={{ color: "var(--accent)" }}>Eshie case study →</span>
+                </Link>
+              </div>
+
+              {/* What to expect */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {AI_STEPS.map((s) => (
+                  <div key={s.step} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: 8, padding: "24px 28px", display: "flex", gap: 20, alignItems: "flex-start" }}>
+                    <div style={{ fontFamily: "var(--font-jetbrains),monospace", fontSize: 13, color: "var(--accent)", fontWeight: 600, minWidth: 28 }}>{s.step}</div>
+                    <div>
+                      <div style={{ fontFamily: "var(--font-fraunces),serif", fontSize: 20, fontWeight: 500, marginBottom: 6, color: "var(--foreground)" }}>{s.title}</div>
+                      <div style={{ fontSize: 14, color: "var(--dim)", lineHeight: 1.6 }}>{s.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
